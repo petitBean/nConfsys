@@ -1,0 +1,66 @@
+
+--- #------------------------------profiles1-------------------------------#
+spring:
+  profiles: register-center-1
+  application:
+    name: register-center-1
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: register-center-1
+    lease-expiration-duration-in-seconds: 90  #服务失效时间
+    lease-renewal-interval-in-seconds: 30   #发送心跳的时间间隔
+  client:
+    register-with-eureka: true # 向服务中心注册自己，因为是集群
+    fetch-registry: true # 需要搜索服务，因为是集群
+    serviceUrl:
+      defaultZone: http://register-center-2:8762/eureka/ #,http://register-center-3:8763/eureka/  #多个URL之间不要有空格
+
+
+
+---   #------------------------------profiles2-------------------------------#
+spring:
+  profiles: register-center-2
+  application:
+    name: register-center-2
+
+server:
+  port: 8762
+
+eureka:
+  instance:
+    hostname: register-center-2
+    lease-expiration-duration-in-seconds: 90  #服务失效时间
+    lease-renewal-interval-in-seconds: 30   #发送心跳的时间间隔
+  client:
+    register-with-eureka: true #像服务中心注册自己，因为是集群
+    fetch-registry: true #需要搜索服务，因为是集群
+    serviceUrl:
+      defaultZone: http://register-center-3:8763/eureka/ #,http://register-center-1:8761/eureka
+
+
+
+---   #------------------------------profiles3-------------------------------#
+spring:
+  profiles: register-center-3
+  application:
+    name: register-center-3
+
+server:
+  port: 8763
+
+eureka:
+  instance:
+    hostname: register-center-3
+    lease-expiration-duration-in-seconds: 90  #服务失效时间
+    lease-renewal-interval-in-seconds: 30   #发送心跳的时间间隔
+  client:
+    register-with-eureka: true #像服务中心注册自己，因为是集群
+    fetch-registry: true #需要搜索服务，因为是集群
+    serviceUrl:
+      defaultZone: http://register-center-1:8761/eureka/ #，http://register-center-2:8762/eureka/
+
+---   #------------------------------profiles2-------------------------------#
