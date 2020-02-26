@@ -1,0 +1,32 @@
+server:
+  port: 8671
+
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://register-center-1:8761/eureka/,http://register-center-3:8763/eureka/ #,http://register-center-2:8762/eureka/
+zuul:
+  ignored-services: *  #关闭默认的创建路由规则功能
+  routes:
+    api-test:
+      path: /api-test/**
+      serviceId: client-test1
+    api-consumer:
+      path: /api-consumer/**
+      serviceId: consumer-test   #该方式可以使用熔断和riibon负载功能
+
+hystrix:
+  commmand:
+    default:
+      execution:
+        isolation:
+          timeoutInMilliseconds: 5000
+
+
+ribbon:
+  ConnectTimeout: 
+

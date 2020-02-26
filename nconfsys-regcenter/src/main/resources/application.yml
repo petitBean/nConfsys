@@ -17,7 +17,7 @@ eureka:
     register-with-eureka: true # 向服务中心注册自己，因为是集群
     fetch-registry: true # 需要搜索服务，因为是集群
     serviceUrl:
-      defaultZone: http://register-center-2:8762/eureka/ #,http://register-center-3:8763/eureka/  #多个URL之间不要有空格
+      defaultZone: http://register-center-3:8763/eureka/ #,http://register-center-3:8763/eureka/  #多个URL之间不要有空格
 
 
 

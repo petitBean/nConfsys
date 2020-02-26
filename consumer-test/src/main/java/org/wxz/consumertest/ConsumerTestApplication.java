@@ -1,16 +1,17 @@
-package org.wxz.confsystest;
+package org.wxz.consumertest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class ConfsysTestApplication {
+@EnableFeignClients
+public class ConsumerTestApplication {
 
     public static void main(String[] args) {
-
-        SpringApplication.run(ConfsysTestApplication.class, args);
+        SpringApplication.run(ConsumerTestApplication.class, args);
     }
 
 }

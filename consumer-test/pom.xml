@@ -8,11 +8,10 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    
     <groupId>org.wxz</groupId>
-    <artifactId>confsys-test</artifactId>
+    <artifactId>consumer-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>confsys-test</name>
+    <name>consumer-test</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
