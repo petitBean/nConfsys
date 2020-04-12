@@ -10,7 +10,7 @@ eureka:
     serviceUrl:
       defaultZone: http://register-center-1:8761/eureka/,http://register-center-3:8763/eureka/ #,http://register-center-2:8762/eureka/
 zuul:
-  ignored-services: *  #关闭默认的创建路由规则功能
+  #ignored-services: *  #关闭默认的创建路由规则功能
   routes:
     api-test:
       path: /api-test/**
@@ -28,5 +28,5 @@ hystrix:
 
 
 ribbon:
-  ConnectTimeout: 
+  ConnectTimeout: 3000
 
