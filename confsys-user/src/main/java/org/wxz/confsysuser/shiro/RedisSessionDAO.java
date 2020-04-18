@@ -62,7 +62,7 @@ public class RedisSessionDAO extends AbstractSessionDAO {
         if (session!=null){
             session.setTimeout(SESSION_EXPIRE_TIME*1000);
         }
-        System.out.println("seesion:"+session.toString());
+//        System.out.println("seesion:"+session.toString());
         return session;
     }
 

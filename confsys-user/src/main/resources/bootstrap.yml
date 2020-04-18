@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: user-service
+
+  #数据
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://127.0.0.1:3306/nconfsys-dab?serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  redis:  #redis配置
+    host: localhost
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-idle: 8 #最大连接数
+    timeout: 3000
+
+#server
+server:
+  servlet:
+    context-path: /user-service
+  port: 8086
+
+#eureka client
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://register-center-1:8761/eureka/,http://register-center-3:8763/eureka/ #http://register-center-2:8762/eureka/
+
+  #feign配置
+feign:
+  hystrix:
+    enabled: true  #开启Hystrix
+  compression:
+    response:
+      enabled: true  #开启GZIP压缩
+
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json   #压缩类型,默认值
+      min-request-size: 2048  #达到此值才会压缩，默认值
+  client:
+    config:
+      user-service:
+        ribbon:
+          OkToRetryOnAllOperations: true  # 对所有操作请求都进行重试
+          MaxAutoRetries: 2 # 对当前实例的重试次数
+          ConnectTimeout: 30000  # 请求连接的超时时间
+          ReadTimeout: 5000 # 请求处理的超时时间

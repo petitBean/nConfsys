@@ -21,7 +21,11 @@ public class Permission {
     @Id
     private String permissionId;
 
+    private String permissionCode;
+
     private String permissionName;
+
+    private String url;
 
     private String description;
 

@@ -2,8 +2,7 @@
 server:
   port: 8082
 
-
-
+#spring
 spring:
   application:
     name: consumer-test
@@ -33,6 +32,6 @@ feign:
          ribbon:
             OkToRetryOnAllOperations: true  # 对所有操作请求都进行重试
             MaxAutoRetries: 2 # 对当前实例的重试次数
-            ConnectTimeout: 3000  # 请求连接的超时时间
+            ConnectTimeout: 5000  # 请求连接的超时时间
             ReadTimeout: 3000 # 请求处理的超时时间
 
