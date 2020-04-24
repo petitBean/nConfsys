@@ -12,4 +12,6 @@ public interface UserRoleService {
 
     List<UserRole> findAllUserRoleByUserId(String userId);
 
+    UserRole saveOne(UserRole userRole);
+
 }

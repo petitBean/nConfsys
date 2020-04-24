@@ -45,7 +45,8 @@ public class AuthResourceServerConfig {
         public void configure(HttpSecurity httpSecurity) throws Exception{
             httpSecurity
                     .authorizeRequests()
-                    .antMatchers("/api-auth-service/**").permitAll() ;//对访问认证授权中心的所有访问放行
+                    .antMatchers("/api-auth-service/**").permitAll()
+                     .antMatchers("/api-conf-service/**").permitAll();//对访问认证授权中心的所有访问放行
         }
 
     }
@@ -73,10 +74,7 @@ public class AuthResourceServerConfig {
         public void configure(HttpSecurity httpSecurity) throws Exception{
             httpSecurity
                     .authorizeRequests()
-                    .antMatchers("/api-notice-service/**").access("#oauth2.hasScope('all')")//校验和客户端申请令牌时的scope是否一样，不一样不通过
-                    .antMatchers("/api-notice-service/notice-service/teacher")
-                    .permitAll();
-
+                    .antMatchers("/api-notice-service/**").permitAll();
         }
 
     }
@@ -105,9 +103,9 @@ public class AuthResourceServerConfig {
         public void configure(HttpSecurity httpSecurity) throws Exception{
             httpSecurity
                     .authorizeRequests()
-                    .antMatchers("/api-user-service/**").access("#oauth2.hasScope('all')")//校验和客户端申请令牌时的scope是否一样，不一样不通过
-                    .antMatchers("/api-user-service/user-service/teacher").permitAll();
-
+                    .antMatchers("/api-user-service/**").permitAll()
+                    .antMatchers("/user-service/**").permitAll();
+                    ;
         }
 
     }
@@ -135,8 +133,10 @@ public class AuthResourceServerConfig {
         public void configure(HttpSecurity httpSecurity) throws Exception{
             httpSecurity
                     .authorizeRequests()
-                    .antMatchers("/api-paper-service/**").access("#oauth2.hasScope('all')")//校验和客户端申请令牌时的scope是否一样，不一样不通过
-                    .antMatchers("/api-paper-service/user-service/teacher").permitAll();
+                    .antMatchers("/api-paper-service/**")
+                    .permitAll()
+                    ;//.anyRequest().permitAll();//.access("#oauth2.hasScope('all')")//校验和客户端申请令牌时的scope是否一样，不一样不通过
+                   // .antMatchers("/api-paper-service/user-service/teacher").permitAll();
 
         }
 
@@ -166,8 +166,12 @@ public class AuthResourceServerConfig {
         public void configure(HttpSecurity httpSecurity) throws Exception{
             httpSecurity
                     .authorizeRequests()
-                    .antMatchers("/api-conf-service/**").access("#oauth2.hasScope('all')")//校验和客户端申请令牌时的scope是否一样，不一样不通过
-                    .antMatchers("/api-conf-service/user-service/teacher").permitAll();
+                    .antMatchers("/api-conf-service/**")
+                    .permitAll();
+
+                   // .anyRequest()
+                  //  .permitAll();//.access("#oauth2.hasScope('all')")//校验和客户端申请令牌时的scope是否一样，不一样不通过
+                   // .antMatchers("/api-conf-service/user-service/teacher").permitAll();
 
         }
 

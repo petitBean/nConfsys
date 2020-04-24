@@ -25,14 +25,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*http.authorizeRequests().antMatchers(HttpMethod.OPTIONS).permitAll().anyRequest().authenticated().and()
-                .httpBasic().and().csrf().disable();*/
         http.csrf().disable()
                 .authorizeRequests()
-               // .antMatchers("r/r1").hasAnyAuthority("p1")
-               // .antMatchers("/login").permitAll()
+                .antMatchers("/userLogin").permitAll()
                 .antMatchers("/r/**").authenticated()
-                .anyRequest().permitAll()  //除了/r/**其他都可以访问
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
                 ;
     }
 

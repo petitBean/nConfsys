@@ -25,11 +25,11 @@ public class ConfResponse<T> {
      */
     private T data;
 
-    private ConfResponse(){
+    public ConfResponse(){
         this(RestCodeEnum.SUCCESS);
     }
 
-    private ConfResponse(Integer code,String message,T data){
+    public ConfResponse(Integer code,String message,T data){
         this.code=code;
         this.message=message;
         this.data=data;
@@ -39,13 +39,13 @@ public class ConfResponse<T> {
      * 构造
      * @param codeEnum
      */
-    private   ConfResponse(RestCodeEnum codeEnum){
+    public   ConfResponse(RestCodeEnum codeEnum){
         this.code=codeEnum.getCode();
         this.message=codeEnum.getMessage();
         this.data=null;
     }
 
-    private   ConfResponse(RestCodeEnum codeEnum,T data){
+    public   ConfResponse(RestCodeEnum codeEnum,T data){
         this.code=codeEnum.getCode();
         this.message=codeEnum.getMessage();
         this.data=data;
@@ -95,6 +95,13 @@ public class ConfResponse<T> {
      */
     public static <T> ConfResponse<T> fail(){
         ConfResponse<T> response=new ConfResponse<>(RestCodeEnum.FAILED);
+        response.setData(null);
+        return response;
+    }
+
+    public static <T> ConfResponse<T> fail(String message){
+        ConfResponse<T> response=new ConfResponse<>(RestCodeEnum.FAILED);
+        response.setMessage(message);
         response.setData(null);
         return response;
     }

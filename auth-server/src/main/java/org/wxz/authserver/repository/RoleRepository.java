@@ -25,4 +25,12 @@ public interface RoleRepository extends JpaRepository<Role,String> {
      */
     List<Role> findAllByRoleIdIn(List<String> roleIdList);
 
+
+    /**
+     *
+     * @param roleName
+     * @return
+     */
+    Role findByRoleName(String roleName);
+
 }

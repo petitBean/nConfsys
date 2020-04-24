@@ -6,7 +6,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    url: jdbc:mysql://127.0.0.1:3306/nconfsys?serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8
+    url: jdbc:mysql://127.0.0.1:3306/nconfsys-dab?serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8
     password: 123456
   jpa:
     hibernate:

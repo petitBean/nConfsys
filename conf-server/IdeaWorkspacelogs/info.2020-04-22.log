@@ -1,0 +1,431 @@
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 727ms. Found 8 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=cd8e41ea-4ad1-36b7-971e-e2c13d60e34d
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5e485' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@d0128b
+
+
+Using generated security password: 797d8724-19c9-4d69-b156-952af96b05c5
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c1c134, org.springframework.security.web.context.SecurityContextPersistenceFilter@61c673, org.springframework.security.web.header.HeaderWriterFilter@92635c, org.springframework.security.web.authentication.logout.LogoutFilter@1d8aefe, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@8d8a25, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11d73c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3240b0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6480e2, org.springframework.security.web.session.SessionManagementFilter@1523e1b, org.springframework.security.web.access.ExceptionTranslationFilter@1999cf4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@133b614]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1063080, org.springframework.security.web.context.SecurityContextPersistenceFilter@1e9d191, org.springframework.security.web.header.HeaderWriterFilter@305c45, org.springframework.security.web.authentication.logout.LogoutFilter@1fc6e50, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13a3ccc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ca8a5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b21ec1, org.springframework.security.web.session.SessionManagementFilter@157f48, org.springframework.security.web.access.ExceptionTranslationFilter@b4caba, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6ebaf2]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Started ConferenceDtailServiceimplTest in 66.915 seconds (JVM running for 104.043)
+查询会议-结果为空：confId=001
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m9s268ms672µs250ns).
+Setting initial instance status as: STARTING
+Unregistering application CONF-SERVICE with eureka with status DOWN
+Shutting down ExecutorService 'applicationTaskExecutor'
+Closing JPA EntityManagerFactory for persistence unit 'default'
+HikariPool-1 - Shutdown initiated...
+HikariPool-1 - Shutdown completed.
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 712ms. Found 8 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=cd8e41ea-4ad1-36b7-971e-e2c13d60e34d
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@d11527' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 384ms. Found 8 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=cd8e41ea-4ad1-36b7-971e-e2c13d60e34d
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@e7394f' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1897ffb
+
+
+Using generated security password: bf9b750e-c4bc-448f-a4f7-a615e7ad70ab
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c38eeb, org.springframework.security.web.context.SecurityContextPersistenceFilter@17c3e33, org.springframework.security.web.header.HeaderWriterFilter@3552b0, org.springframework.security.web.authentication.logout.LogoutFilter@1c7d3f4, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@19bad15, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b27091, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@752a2a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e9985f, org.springframework.security.web.session.SessionManagementFilter@15cd031, org.springframework.security.web.access.ExceptionTranslationFilter@b4e4b1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@24d077]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e949d4, org.springframework.security.web.context.SecurityContextPersistenceFilter@1d4d221, org.springframework.security.web.header.HeaderWriterFilter@1caec2e, org.springframework.security.web.authentication.logout.LogoutFilter@becae, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1fe5727, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@129792a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@17e9cd2, org.springframework.security.web.session.SessionManagementFilter@1cce4c2, org.springframework.security.web.access.ExceptionTranslationFilter@38cac6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1612968]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Started ConferenceDtailServiceimplTest in 21.741 seconds (JVM running for 25.313)
+查询会议-结果为空：confId=0001
+Setting initial instance status as: STARTING
+Unregistering application CONF-SERVICE with eureka with status DOWN
+Shutting down ExecutorService 'applicationTaskExecutor'
+Closing JPA EntityManagerFactory for persistence unit 'default'
+HikariPool-1 - Shutdown initiated...
+HikariPool-1 - Shutdown completed.
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 385ms. Found 8 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=cd8e41ea-4ad1-36b7-971e-e2c13d60e34d
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1305f34' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1a78d2e
+
+
+Using generated security password: 92fe3a66-2b4a-4c3f-ba2d-ae136b3dafcb
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6b4f7e, org.springframework.security.web.context.SecurityContextPersistenceFilter@d93693, org.springframework.security.web.header.HeaderWriterFilter@2693c2, org.springframework.security.web.authentication.logout.LogoutFilter@e9985f, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@98d741, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e8304b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@499396, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@131823, org.springframework.security.web.session.SessionManagementFilter@1a35d3b, org.springframework.security.web.access.ExceptionTranslationFilter@ee9290, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@b4cad0]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1c39950, org.springframework.security.web.context.SecurityContextPersistenceFilter@ff56f7, org.springframework.security.web.header.HeaderWriterFilter@1fa2dcc, org.springframework.security.web.authentication.logout.LogoutFilter@a984c5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@648af1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d65ffc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1056418, org.springframework.security.web.session.SessionManagementFilter@1cfb958, org.springframework.security.web.access.ExceptionTranslationFilter@160ebe2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@422390]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Started ConferenceDtailServiceimplTest in 17.872 seconds (JVM running for 20.889)
+查询会议-结果为空：confId=0001
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m1s475ms809µs58ns).
+Setting initial instance status as: STARTING
+Unregistering application CONF-SERVICE with eureka with status DOWN
+Shutting down ExecutorService 'applicationTaskExecutor'
+Closing JPA EntityManagerFactory for persistence unit 'default'
+HikariPool-1 - Shutdown initiated...
+HikariPool-1 - Shutdown completed.
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 358ms. Found 8 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=cd8e41ea-4ad1-36b7-971e-e2c13d60e34d
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@126b992' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@15e3f58
+
+
+Using generated security password: b56ce094-2a19-45c0-aed8-fb9454ec3548
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b4e4b1, org.springframework.security.web.context.SecurityContextPersistenceFilter@12db1d8, org.springframework.security.web.header.HeaderWriterFilter@8177f6, org.springframework.security.web.authentication.logout.LogoutFilter@11fe6d4, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@17f3adf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@155b4d4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f1703, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3552b0, org.springframework.security.web.session.SessionManagementFilter@19f738a, org.springframework.security.web.access.ExceptionTranslationFilter@1ccb3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1983f07]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18a7489, org.springframework.security.web.context.SecurityContextPersistenceFilter@c349fc, org.springframework.security.web.header.HeaderWriterFilter@4f033d, org.springframework.security.web.authentication.logout.LogoutFilter@788194, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d0d561, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9a722d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1e2a8fc, org.springframework.security.web.session.SessionManagementFilter@1526f91, org.springframework.security.web.access.ExceptionTranslationFilter@2c89ac, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e12ec3]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Started ConferenceDtailServiceimplTest in 17.97 seconds (JVM running for 20.861)
+查询会议-结果为空：confId=0001
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m46s826ms554µs428ns).
+Setting initial instance status as: STARTING
+Unregistering application CONF-SERVICE with eureka with status DOWN
+Shutting down ExecutorService 'applicationTaskExecutor'
+Closing JPA EntityManagerFactory for persistence unit 'default'
+HikariPool-1 - Shutdown initiated...
+HikariPool-1 - Shutdown completed.
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 297ms. Found 8 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=cd8e41ea-4ad1-36b7-971e-e2c13d60e34d
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@13e76b3' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@8a188a
+
+
+Using generated security password: ada62ab6-283a-4dd9-ab78-f75679f20bbf
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e680fe, org.springframework.security.web.context.SecurityContextPersistenceFilter@1866865, org.springframework.security.web.header.HeaderWriterFilter@4392ba, org.springframework.security.web.authentication.logout.LogoutFilter@1d8567, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@1a29b9e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10574cb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27d5f1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a0c99c, org.springframework.security.web.session.SessionManagementFilter@8279d3, org.springframework.security.web.access.ExceptionTranslationFilter@19ddfff, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c6c5e5]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11b43d8, org.springframework.security.web.context.SecurityContextPersistenceFilter@44ad33, org.springframework.security.web.header.HeaderWriterFilter@163365c, org.springframework.security.web.authentication.logout.LogoutFilter@1e1f37f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e5614, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d5f99, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f52eb7, org.springframework.security.web.session.SessionManagementFilter@39d03b, org.springframework.security.web.access.ExceptionTranslationFilter@945295, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4d93f7]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Started ConferenceDtailServiceimplTest in 14.564 seconds (JVM running for 17.292)
+查询会议-结果为空：confId=0001
+Setting initial instance status as: STARTING
+Unregistering application CONF-SERVICE with eureka with status DOWN
+Shutting down ExecutorService 'applicationTaskExecutor'
+Closing JPA EntityManagerFactory for persistence unit 'default'
+HikariPool-1 - Shutdown initiated...
+HikariPool-1 - Shutdown completed.
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 366ms. Found 8 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=cd8e41ea-4ad1-36b7-971e-e2c13d60e34d
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2d549a' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@6d6308
+
+
+Using generated security password: 4ee24819-6498-48ca-9b3c-789d97e7690d
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a8cb4e, org.springframework.security.web.context.SecurityContextPersistenceFilter@1d44cd3, org.springframework.security.web.header.HeaderWriterFilter@d93693, org.springframework.security.web.authentication.logout.LogoutFilter@8dbd07, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@1d6c35e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@dc0a5f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d0bff1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ec3604, org.springframework.security.web.session.SessionManagementFilter@1111e97, org.springframework.security.web.access.ExceptionTranslationFilter@1810e94, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@89dec0]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@9f2184, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a48ee4, org.springframework.security.web.header.HeaderWriterFilter@32b7b, org.springframework.security.web.authentication.logout.LogoutFilter@9d0ef2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@422390, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c39950, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1386162, org.springframework.security.web.session.SessionManagementFilter@117a7ef, org.springframework.security.web.access.ExceptionTranslationFilter@dabb23, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@c85ffc]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Started ConferenceRepositoryTest in 18.101 seconds (JVM running for 21.091)
+Setting initial instance status as: STARTING
+Unregistering application CONF-SERVICE with eureka with status DOWN
+Shutting down ExecutorService 'applicationTaskExecutor'
+Closing JPA EntityManagerFactory for persistence unit 'default'
+HikariPool-1 - Shutdown initiated...
+HikariPool-1 - Shutdown completed.
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 306ms. Found 8 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=cd8e41ea-4ad1-36b7-971e-e2c13d60e34d
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@279a49' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@8bf
+
+
+Using generated security password: 1701cdcf-3009-43d9-81f0-b815b08f6ff9
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a38bba, org.springframework.security.web.context.SecurityContextPersistenceFilter@27d5f1, org.springframework.security.web.header.HeaderWriterFilter@b2c1cf, org.springframework.security.web.authentication.logout.LogoutFilter@184688f, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@a7ea7c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f94b0b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1a0fc8c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ca6ba3, org.springframework.security.web.session.SessionManagementFilter@7113f8, org.springframework.security.web.access.ExceptionTranslationFilter@104b493, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@a0c99c]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@170851e, org.springframework.security.web.context.SecurityContextPersistenceFilter@1648dd2, org.springframework.security.web.header.HeaderWriterFilter@1e1f37f, org.springframework.security.web.authentication.logout.LogoutFilter@4d93f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c326c0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5d40ec, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7d8613, org.springframework.security.web.session.SessionManagementFilter@1ed96e1, org.springframework.security.web.access.ExceptionTranslationFilter@e3f3e5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@120750c]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Started ConferenceRepositoryTest in 14.542 seconds (JVM running for 16.854)
+Setting initial instance status as: STARTING
+Unregistering application CONF-SERVICE with eureka with status DOWN
+Shutting down ExecutorService 'applicationTaskExecutor'
+Closing JPA EntityManagerFactory for persistence unit 'default'
+HikariPool-1 - Shutdown initiated...
+HikariPool-1 - Shutdown completed.
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 316ms. Found 8 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=cd8e41ea-4ad1-36b7-971e-e2c13d60e34d
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@d11527' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1204303
+
+
+Using generated security password: 04163e65-85dd-484b-a72d-7c30bdf16463
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f83b, org.springframework.security.web.context.SecurityContextPersistenceFilter@1605657, org.springframework.security.web.header.HeaderWriterFilter@7e628b, org.springframework.security.web.authentication.logout.LogoutFilter@12ade46, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@1aa7294, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@318ff9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1107a97, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20b78a, org.springframework.security.web.session.SessionManagementFilter@610fc9, org.springframework.security.web.access.ExceptionTranslationFilter@95c2f6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@751692]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f192d8, org.springframework.security.web.context.SecurityContextPersistenceFilter@111deb6, org.springframework.security.web.header.HeaderWriterFilter@78ec43, org.springframework.security.web.authentication.logout.LogoutFilter@2e0844, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@108a65c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13534a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10d01c9, org.springframework.security.web.session.SessionManagementFilter@14f0655, org.springframework.security.web.access.ExceptionTranslationFilter@ffc008, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1f73119]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Started ConferenceRepositoryTest in 19.918 seconds (JVM running for 22.49)
+Setting initial instance status as: STARTING
+Unregistering application CONF-SERVICE with eureka with status DOWN
+Shutting down ExecutorService 'applicationTaskExecutor'
+Closing JPA EntityManagerFactory for persistence unit 'default'
+HikariPool-1 - Shutdown initiated...
+HikariPool-1 - Shutdown completed.
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 373ms. Found 8 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=cd8e41ea-4ad1-36b7-971e-e2c13d60e34d
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@b5a559' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@10f56f5
+
+
+Using generated security password: 168cbf27-43b4-4d0d-b46b-4e6e0dae38cf
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@10809f, org.springframework.security.web.context.SecurityContextPersistenceFilter@1526f91, org.springframework.security.web.header.HeaderWriterFilter@1289126, org.springframework.security.web.authentication.logout.LogoutFilter@199e1a4, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@83f29b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c349fc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@788194, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10c2a7a, org.springframework.security.web.session.SessionManagementFilter@4f033d, org.springframework.security.web.access.ExceptionTranslationFilter@723adf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@812368]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fb6c1e, org.springframework.security.web.context.SecurityContextPersistenceFilter@1c23273, org.springframework.security.web.header.HeaderWriterFilter@11e5f85, org.springframework.security.web.authentication.logout.LogoutFilter@1306d27, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1bfa7be, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2034fb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@89dec0, org.springframework.security.web.session.SessionManagementFilter@682f91, org.springframework.security.web.access.ExceptionTranslationFilter@1cee97c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@53cbb7]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Started ConferenceRepositoryTest in 17.861 seconds (JVM running for 20.819)
+Setting initial instance status as: STARTING
+Unregistering application CONF-SERVICE with eureka with status DOWN
+Shutting down ExecutorService 'applicationTaskExecutor'
+Closing JPA EntityManagerFactory for persistence unit 'default'
+HikariPool-1 - Shutdown initiated...
+HikariPool-1 - Shutdown completed.
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 376ms. Found 8 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=cd8e41ea-4ad1-36b7-971e-e2c13d60e34d
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@cd798f' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@10dd372
+
+
+Using generated security password: 67bc7e67-4693-403c-96b3-5189714490cc
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@155652a, org.springframework.security.web.context.SecurityContextPersistenceFilter@811dc1, org.springframework.security.web.header.HeaderWriterFilter@b4e4b1, org.springframework.security.web.authentication.logout.LogoutFilter@48a248, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@1a35d3b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19191c1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1800dea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@c54f48, org.springframework.security.web.session.SessionManagementFilter@752a2a, org.springframework.security.web.access.ExceptionTranslationFilter@1accb34, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@15a77de]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@17c0b65, org.springframework.security.web.context.SecurityContextPersistenceFilter@19944a7, org.springframework.security.web.header.HeaderWriterFilter@173c367, org.springframework.security.web.authentication.logout.LogoutFilter@17e9cd2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@94aaa6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1612968, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1303b78, org.springframework.security.web.session.SessionManagementFilter@1690a0a, org.springframework.security.web.access.ExceptionTranslationFilter@becae, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@148bfc7]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Started ConferenceDtailServiceimplTest in 18.097 seconds (JVM running for 20.96)
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m13s946ms464µs912ns).
+Setting initial instance status as: STARTING
+Unregistering application CONF-SERVICE with eureka with status DOWN
+Shutting down ExecutorService 'applicationTaskExecutor'
+Closing JPA EntityManagerFactory for persistence unit 'default'
+HikariPool-1 - Shutdown initiated...
+HikariPool-1 - Shutdown completed.

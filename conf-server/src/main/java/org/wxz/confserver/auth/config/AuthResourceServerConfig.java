@@ -43,7 +43,7 @@ public class AuthResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
                 .authorizeRequests()
-                .antMatchers("/**").access("#oauth2.hasScope('all')")//校验和客户端申请令牌时的scope是否一样，不一样不通过
+                .antMatchers("/**").permitAll()//.access("#oauth2.hasScope('all')")//校验和客户端申请令牌时的scope是否一样，不一样不通过
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);//不记录session
     }

@@ -14,14 +14,14 @@ import org.wxz.confsysdomain.nconfsysuser.UserDto;
 public class TestController {
 
     @GetMapping(value = "/r1")
-    @PreAuthorize("hasAnyAuthority('p1','p2')")
+    //@PreAuthorize("hasAnyAuthority('p1','p2')")
     public String r1(){
         UserDto userDto= (UserDto) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return userDto.getUserName()+"访问资源1";
     }
 
-    @GetMapping(value = "/teacher/r2")
-    @PreAuthorize("hasAnyAuthority('p1','p2')")
+    @GetMapping(value = "/teacher")
+    //@PreAuthorize("hasAnyAuthority('p1','p2')")
     public String r2(){
         return "访问资源2";
     }

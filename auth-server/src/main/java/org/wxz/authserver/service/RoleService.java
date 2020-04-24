@@ -19,4 +19,11 @@ public interface RoleService {
      */
     List<Role> findAllByRoleIdIn(List<String> roleIdList);
 
+    /**
+     *
+     * @param roleName
+     * @return
+     */
+    Role findByRoleName(String roleName);
+
 }

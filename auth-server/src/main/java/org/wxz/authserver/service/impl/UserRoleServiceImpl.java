@@ -28,4 +28,9 @@ public class UserRoleServiceImpl implements UserRoleService {
     public List<UserRole> findAllUserRoleByUserId(String userId) {
         return userRoleRepository.findAllByUserId(userId);
     }
+
+    @Override
+    public UserRole saveOne(UserRole userRole) {
+        return userRoleRepository.save(userRole);
+    }
 }
