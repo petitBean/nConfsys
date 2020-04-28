@@ -12,14 +12,12 @@ import javax.persistence.Id;
  * @Author xingze Wang
  * @create 2020/4/23 16:55
  */
-@Entity
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class ConferenceTag {
-
-    @GeneratedValue
-    private int id;
 
     @Id
     private String ConferenceTagId;

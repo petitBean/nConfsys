@@ -25,6 +25,11 @@ class ConferenceDtailServiceimplTest {
     }
 
     @Test
+    void date() {
+
+    }
+
+    @Test
     void findOneByDetailId() {
     }
 

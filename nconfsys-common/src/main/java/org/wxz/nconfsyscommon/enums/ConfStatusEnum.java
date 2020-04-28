@@ -10,8 +10,8 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum ConfStatusEnum {
-    NEW_CONF_STATUS(0,"新创建的会议"),
-    COMPLETED_DETAIL_STATUS(1,"已经完成会议详情创建"),
+    NEW_CONF_STATUS(0,"待完善"),
+    COMPLETED_DETAIL_STATUS(1,"创建完成"),
     PAPER_COLLECTINT_STATUS(2,"征稿中"),
     PAYING_CONF_STATUS(3,"缴费阶段"),
     HOLDING_STATUS(4,"正在举办"),
@@ -20,6 +20,24 @@ public enum ConfStatusEnum {
     private int code;
 
     private String message;
+
+    public static ConfStatusEnum getByCode(int code){
+        for(ConfStatusEnum confStatusEnum:ConfStatusEnum.values()){
+            if (confStatusEnum.getCode()==code){
+                return confStatusEnum;
+            }
+        }
+        return null;
+    }
+
+    public static ConfStatusEnum getByMsg(String msg){
+        for(ConfStatusEnum confStatusEnum:ConfStatusEnum.values()){
+            if (confStatusEnum.getMessage().equals(msg)){
+                return confStatusEnum;
+            }
+        }
+        return null;
+    }
 
 
 }

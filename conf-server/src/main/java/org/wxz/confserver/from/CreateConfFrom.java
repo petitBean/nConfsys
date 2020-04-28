@@ -32,6 +32,7 @@ public class CreateConfFrom {
 
     private String confIntroduce;
 
-    private String userId;
+    private String userName;
+
 
 }

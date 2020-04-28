@@ -20,6 +20,8 @@ public interface ConferenceRepository extends JpaRepository<Conference,String> {
 
     Conference findByConfId(String conId);
 
+    Conference findByConfName(String confName);
+
     /*Page<Conference> findAll(Pageable pageable,Sort sort);
 */
     @Query("select conference from Conference conference  where conference.keyWords like %?1%")
@@ -27,6 +29,11 @@ public interface ConferenceRepository extends JpaRepository<Conference,String> {
 
     @Query("select conference from Conference conference  where conference.confTopic like %?1%")
     List<Conference> findAllByConfTopicLike(String key);
+
+    @Query("select conference from Conference conference  where conference.confName like %?1%")
+    List<Conference> findAllByConfNameLike(String key);
+
+    List<Conference> findAllByConfIdIn(List<String> confIdList);
 
 
 }

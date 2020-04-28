@@ -22,11 +22,11 @@ public class ConferenceUer {
     private int id;
 
     @Id
-    private String ConferenceUserId;
+    private String conferenceUserId;
 
     private String confId;
 
-    private String userId;
+    private String userName;
 
     private String roleName;
 

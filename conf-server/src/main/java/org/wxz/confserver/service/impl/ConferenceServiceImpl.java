@@ -11,18 +11,21 @@ import org.springframework.stereotype.Service;
 import org.wxz.confserver.from.CreateConfFrom;
 import org.wxz.confserver.repository.ConferenceRepository;
 import org.wxz.confserver.service.ConferenceService;
-import org.wxz.confserver.vo.HomeConfVo;
-import org.wxz.confserver.vo.HomePageVo;
+import org.wxz.confserver.service_api.RoleApiService;
+import org.wxz.confserver.vo.*;
 import org.wxz.confsysdomain.nconfsysconf.Conference;
 import org.wxz.confsysdomain.nconfsysconf.ConferenceDetail;
 import org.wxz.confsysdomain.nconfsysconf.ConferenceTag;
 import org.wxz.confsysdomain.nconfsysconf.Tag;
+import org.wxz.confsysdomain.nconfsysuser.Role;
 import org.wxz.confsysdomain.relation.ConferenceUer;
 import org.wxz.nconfsyscommon.enums.ConfIsOnLineEnum;
 import org.wxz.nconfsyscommon.enums.ConfStatusEnum;
 import org.wxz.nconfsyscommon.enums.RoleNameEnum;
+import org.wxz.nconfsyscommon.utils.DateUtil;
 import org.wxz.nconfsyscommon.utils.KeyUtil;
 
+import javax.annotation.Resource;
 import javax.transaction.Transactional;
 import java.util.*;
 
@@ -48,6 +51,10 @@ public class ConferenceServiceImpl implements ConferenceService {
 
     @Autowired
     private ConferenceDtailServiceimpl dtailServiceimpl;
+
+    @Autowired
+    private RoleServiceImpl roleService;
+
 
     @Override
     @Transactional(rollbackOn = Exception.class)
@@ -76,7 +83,7 @@ public class ConferenceServiceImpl implements ConferenceService {
      */
     @Override
     @Transactional(rollbackOn = Exception.class)
-    public Conference createConf(CreateConfFrom createConfFrom) throws Exception {
+    public Conference createConf(CreateConfFrom createConfFrom)  {
         Conference conference=new Conference();
         if (createConfFrom==null){
             log.info("创建会议-失败-参数为空-from={}",createConfFrom);
@@ -108,6 +115,7 @@ public class ConferenceServiceImpl implements ConferenceService {
             while (iterator.hasNext()){
                 ConferenceTag conferenceTag=new ConferenceTag();
                 conferenceTag.setTagId(iterator.next().getTagId());
+                conferenceTag.setConferenceTagId(KeyUtil.getUniqueKey());
                 conferenceTag.setConfId(conference.getConfId());
                 conferenceTagList.add(conferenceTag);
             }
@@ -118,21 +126,32 @@ public class ConferenceServiceImpl implements ConferenceService {
         conferenceUer.setConferenceUserId(KeyUtil.getUniqueKey());
         conferenceUer.setRoleName(RoleNameEnum.ROLE_SECRETARY.getRoleName());
         conferenceUer.setConfId(conference.getConfId());
-        conferenceUer.setUserId(createConfFrom.getUserId());
+        conferenceUer.setUserName(createConfFrom.getUserName());
         //保存
         Conference result=null;
         try {
             conferenceTagService.saveAll(conferenceTagList);
             result= conferenceRepository.save(conference);
             conferenceUserService.saveOne(conferenceUer);
-        }
-        catch (Exception e){
-            log.info("创建会议-失败-保存失败：conf={},conUser={}");
-            throw e;
+       }
+       catch (Exception e){
+            log.info("创建会议-失败-保存失败：conf={},conUser={},e={}",conference,conferenceUer,e.getStackTrace());
+            /*System.out.println(e.getCause());
+           System.out.println(e.getStackTrace());*/
         }
         return result;
-
     }
+
+    /**
+     * 根据会议名 查找一个
+     * @param confName
+     * @return
+     */
+    @Override
+    public Conference findOneByConfName(String confName) {
+        return conferenceRepository.findByConfName(confName);
+    }
+
 
 
     /**
@@ -161,10 +180,74 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
 
+    /**
+     * 根据会议名模糊查询
+     * @param key
+     * @return
+     */
+    @Override
+    public List<Conference> findListByConfNameLike(String key) {
+        return conferenceRepository.findAllByConfNameLike(key);
+    }
     @Override
     public List<Conference> findAllConfTopicLike(String key) {
         return conferenceRepository.findAllByConfTopicLike(key);
     }
+
+    /**
+     * 根据confIdList查询
+     * @param confIdList
+     * @return
+     */
+    @Override
+    public List<Conference> findListByConfIdIn(List<String> confIdList) {
+        return conferenceRepository.findAllByConfIdIn(confIdList);
+    }
+
+    /**
+     * 个人中心vo
+     * @return
+     */
+    @Override
+    public List<PersonalCenterVo> getPersonalCenterVo() {
+        return null;
+    }
+
+    /**
+     * 搜索申请加入会议
+     * @param key
+     * @return
+     */
+    @Override
+    public List<ApplyJoinConfTableVo> getApplyJoinTableVo(String key) {
+        if (key==null){
+            return null;
+        }
+        List<ApplyJoinConfTableVo> voList=new LinkedList<>();
+        List<Conference> conferenceList=new LinkedList<>();
+        try {
+            Conference  conference=findOneByConfId(key);
+            if (conference==null){
+                //会议名称查找
+                conferenceList=findListByConfNameLike(key);
+            }
+            else {
+                conferenceList.add(conference);
+            }
+        }
+        catch (Exception e){
+            log.error("会议查找-失败：key={},e={}",key,e.getStackTrace());
+        }
+        //拼接
+        for (Conference conference:conferenceList){
+            ApplyJoinConfTableVo vo=new ApplyJoinConfTableVo();
+            BeanUtils.copyProperties(conference,vo);
+            voList.add(vo);
+        }
+        return voList;
+    }
+
+
 
     /**
      * 根据关注数查询会议
@@ -217,6 +300,70 @@ public class ConferenceServiceImpl implements ConferenceService {
         list.addAll(confSet);
         return createHomeVoByConfList(list);
     }
+
+    @Override
+    public ConfManageCenterVo getConfManageCenterVo(String username) {
+        ConfManageCenterVo centerVo=new ConfManageCenterVo();
+        centerVo.setTableVoList(getConfManageTableDataVo(username));
+        //
+
+        return centerVo;
+    }
+
+    /**
+     * 返回某个用户的管理的会议的table信息
+     * @param username
+     * @return
+     */
+    @Override
+    public List<ConfManagTableVo> getConfManageTableDataVo(String username) {
+        //查询conf-user
+        List<ConferenceUer> conferenceUerList=conferenceUserService.findListByUserName(username);
+        if (conferenceUerList==null){
+            return null;
+        }
+        List<String> confIdList=new LinkedList<>();
+        List<String> roleNameList=new LinkedList<>();
+        for (ConferenceUer conferenceUer:conferenceUerList){
+            confIdList.add(conferenceUer.getConfId());
+            roleNameList.add(conferenceUer.getRoleName());
+        }
+        //查询conf
+        List<Conference> conferenceList=findListByConfIdIn(confIdList);
+        //查询role
+        List<Role> roleList=roleService.findListByRoleNameIn(roleNameList);
+        //组装
+        Map<String,Conference> conferenceMap=new HashMap<>(conferenceList.size());
+        Map<String,Role> roleMap=new HashMap<>(roleList.size());
+        if (conferenceList==null || roleList==null){
+            log.info("查询用户管理的会议-结果为空！ username={}",username);
+            return null;
+        }
+        for (Conference conference:conferenceList){
+            conferenceMap.put(conference.getConfId(),conference);
+        }
+        for (Role role:roleList){
+            roleMap.put(role.getRoleName(),role);
+        }
+        List<ConfManagTableVo> confManagTableVoList=new LinkedList<>();
+        for (ConferenceUer conferenceUer:conferenceUerList){
+            Conference conference1=conferenceMap.get(conferenceUer.getConfId());
+            ConfManagTableVo vo=new ConfManagTableVo();
+            BeanUtils.copyProperties(conference1,vo);
+            BeanUtils.copyProperties(roleMap.get(conferenceUer.getRoleName()),vo);
+            vo.setStatusStr(ConfStatusEnum.getByCode(conference1.getStatus()).getMessage());
+            try {
+                vo.setStartTimeStr(DateUtil.dateMinuteToStr(conference1.getStartTime()));
+                vo.setEndTimeStr(DateUtil.dateMinuteToStr(conference1.getEndTime()));
+            }
+            catch (Exception e){
+                log.error("获取ConfManagTableVo-失败-日期转换错误：conference={}",conference1);
+            }
+            confManagTableVoList.add(vo);
+        }
+        return confManagTableVoList;
+    }
+
 
 
     /**

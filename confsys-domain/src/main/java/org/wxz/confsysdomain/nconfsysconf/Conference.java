@@ -27,15 +27,19 @@ public class Conference {
     @Id
     private String confId;
 
+    /**
+     * 名称
+     */
     private String confName;
 
     private String  keyWords;
 
     private String confIntroduce;
 
+    /**
+     * 主题
+     */
     private String confTopic;
-
-    private String confOrgnizId;
 
     private String confDetailId;
 

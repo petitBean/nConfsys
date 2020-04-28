@@ -7,6 +7,7 @@ import org.wxz.confserver.service.ConferenceUserService;
 import org.wxz.confsysdomain.relation.ConferenceUer;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * @Author xingze Wang
@@ -19,18 +20,23 @@ public class ConferenceUserServiceImpl implements ConferenceUserService {
     private ConferenceUserRepository conferenceUserRepository;
 
     @Override
-    public ConferenceUer findByConfIdAndUserId(String confId, String userId) {
-        return conferenceUserRepository.findByConfIdAndUserId(confId,userId);
+    public ConferenceUer findByConfIdAndUserName(String confId, String userName) {
+        return conferenceUserRepository.findByConfIdAndUserName(confId,userName);
     }
 
     @Override
-    public ConferenceUer findByConferenceUserId(String conferenceUserId) {
-        return conferenceUserRepository.findByConferenceUserId(conferenceUserId);
+    public ConferenceUer findByConferenceUserName(String conferenceUserName) {
+        return conferenceUserRepository.findByConferenceUserId(conferenceUserName);
     }
 
     @Override
     @Transactional(rollbackOn = Exception.class)
     public ConferenceUer saveOne(ConferenceUer conferenceUer) throws Exception {
         return conferenceUserRepository.save(conferenceUer);
+    }
+
+    @Override
+    public List<ConferenceUer> findListByUserName(String userName) {
+        return conferenceUserRepository.findAllByUserName(userName);
     }
 }

@@ -20,17 +20,26 @@ public class DetailPageVo {
 
     private String confTopic;
 
-    private Date startTime;
+    private String startTimeStr;
 
-    private Date endTime;
+    private String endTimeStr;
 
     private int focusedOn;
 
-    private int isOnlie;
+    private String isOnlineStr;
 
-    private int status;
+    private String statusStr;
+
+    private String confIntroduce;
+
+    private String createTimeStr;
 
     //
+    private String payDemanded;
+
+    private String paperDemanded;
+
+
     private String confSession;
 
     private String confSubject;
@@ -39,13 +48,15 @@ public class DetailPageVo {
 
     private String contect;
 
-    private Date paperCollectionStart;
+    private String paperCollectionStartStr;
 
-    private Date paperCollectionEnd;
+    private String paperCollectionEndStr;
 
-    private Date payStartTime;
+    private String payStartTimeStr;
 
-    private Date payEndTime;
+    private String payEndTimeStr;
+
+    private String confOrgnizeIntroduce;
 
 
 }

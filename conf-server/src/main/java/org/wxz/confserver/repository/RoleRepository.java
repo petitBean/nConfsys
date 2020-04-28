@@ -12,6 +12,9 @@ import java.util.List;
  */
 @Repository
 public interface RoleRepository extends JpaRepository<Role,String> {
+
+
+
     /**
      * 查找所有的角色
      * @return
@@ -24,5 +27,16 @@ public interface RoleRepository extends JpaRepository<Role,String> {
      * @return
      */
     List<Role> findAllByRoleIdIn(List<String> roleIdList);
+
+
+    List<Role> findAllByRoleNameIn(List<String> roleNameList);
+
+
+    /**
+     *
+     * @param roleName
+     * @return
+     */
+    Role findByRoleName(String roleName);
 
 }

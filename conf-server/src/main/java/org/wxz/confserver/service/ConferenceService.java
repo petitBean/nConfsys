@@ -2,8 +2,7 @@ package org.wxz.confserver.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.wxz.confserver.from.CreateConfFrom;
-import org.wxz.confserver.vo.HomeConfVo;
-import org.wxz.confserver.vo.HomePageVo;
+import org.wxz.confserver.vo.*;
 import org.wxz.confsysdomain.nconfsysconf.Conference;
 
 import java.util.List;
@@ -36,5 +35,20 @@ public interface ConferenceService {
     int countAll();
 
     List<HomeConfVo> searcheConfByKeyOrTopic( String key);
+
+    ConfManageCenterVo getConfManageCenterVo(String username);
+
+    List<ConfManagTableVo> getConfManageTableDataVo(String username);
+
+    List<Conference> findListByConfIdIn(List<String> confIdList);
+
+    List<PersonalCenterVo> getPersonalCenterVo();
+
+    List<ApplyJoinConfTableVo> getApplyJoinTableVo(String key);
+
+    Conference findOneByConfName(String confName);
+
+     List<Conference> findListByConfNameLike(String key) ;
+
 
 }

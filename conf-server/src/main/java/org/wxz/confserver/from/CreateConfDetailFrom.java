@@ -28,4 +28,11 @@ public class CreateConfDetailFrom {
     private String groupIntroduce;
 
     private String confId;
+
+   private String username;
+
+
+    private String confOrgnizeIntroduce;
+
+    private String confIntroduce;
 }

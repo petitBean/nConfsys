@@ -28,11 +28,25 @@ public class ConferenceDetail {
     @Id
     private String confDetailId;
 
+    /**
+     * 会期
+     */
     private String confSession;
 
+    /**
+     * 议题
+     */
     private String confSubject;
 
+    /**
+     * 主要组织介绍
+     */
     private String groupIntroduce;
+
+    /**
+     * 主办方
+     */
+    private String confOrgnizeIntroduce;
 
     private String bigPosterUrl;
 
@@ -49,6 +63,16 @@ public class ConferenceDetail {
     private Date payStartTime;
 
     private Date payEndTime;
+
+    /**
+     * 会费要求/说明
+     */
+    private String payDemanded;
+
+    /**
+     * 征文要求和说明
+     */
+    private String paperDemanded;
 
     private Date paperCollectionEnd;
 

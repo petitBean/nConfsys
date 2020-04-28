@@ -26,4 +26,6 @@ public interface RoleService {
      */
     Role findByRoleName(String roleName);
 
+    List<Role> findListByRoleNameIn(List<String> roleNameList);
+
 }

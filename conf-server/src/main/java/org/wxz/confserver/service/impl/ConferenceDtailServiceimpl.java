@@ -10,7 +10,9 @@ import org.wxz.confserver.service.ConferenceDetailService;
 import org.wxz.confserver.vo.DetailPageVo;
 import org.wxz.confsysdomain.nconfsysconf.Conference;
 import org.wxz.confsysdomain.nconfsysconf.ConferenceDetail;
+import org.wxz.nconfsyscommon.enums.ConfIsOnLineEnum;
 import org.wxz.nconfsyscommon.enums.ConfStatusEnum;
+import org.wxz.nconfsyscommon.utils.DateUtil;
 import org.wxz.nconfsyscommon.utils.KeyUtil;
 
 import javax.transaction.Transactional;
@@ -61,6 +63,34 @@ public class ConferenceDtailServiceimpl implements ConferenceDetailService {
         DetailPageVo detailPageVo=new DetailPageVo();
         BeanUtils.copyProperties(conference,detailPageVo);
         BeanUtils.copyProperties(detail,detailPageVo);
+        //状态
+        ConfStatusEnum statusEnum=ConfStatusEnum.getByCode(conference.getStatus());
+        ConfIsOnLineEnum isOnLineEnum=ConfIsOnLineEnum.getByCode(conference.getIsOnline());
+        if (statusEnum==null){
+            log.error("获取会议详情VO-异常-状态转换错误：code={}",conference.getStatus());
+        }
+        else {
+            detailPageVo.setStatusStr(statusEnum.getMessage());
+        }
+        if (isOnLineEnum==null){
+            log.error("获取会议详情VO-异常-在线状态转换错误：code={}",conference.getIsOnline());
+        }
+        else {
+            detailPageVo.setIsOnlineStr(isOnLineEnum.getMessage());
+        }
+        //时间-》字符串
+        try{
+            detailPageVo.setStartTimeStr(DateUtil.dateMinuteToStr(conference.getStartTime()));
+            detailPageVo.setEndTimeStr(DateUtil.dateMinuteToStr(conference.getEndTime()));
+            detailPageVo.setCreateTimeStr(DateUtil.dateMinuteToStr(conference.getCreateTime()));
+            detailPageVo.setPaperCollectionEndStr(DateUtil.dateMinuteToStr(detail.getPaperCollectionEnd()));
+            detailPageVo.setPaperCollectionStartStr(DateUtil.dateMinuteToStr(detail.getPaperCollectionStart()));
+            detailPageVo.setPayStartTimeStr(DateUtil.dateMinuteToStr(detail.getPayStartTime()));
+            detailPageVo.setPayEndTimeStr(DateUtil.dateMinuteToStr(detail.getPayEndTime()));
+        }
+        catch (Exception e){
+            log.error("获取会议详情VO-异常-时间转换错误：e={},causeby={}",e.getStackTrace(),e.getCause());
+        }
         return detailPageVo;
     }
 
@@ -84,10 +114,22 @@ public class ConferenceDtailServiceimpl implements ConferenceDetailService {
         detail.setConfDetailId(KeyUtil.getUniqueKey());
         //conf 中设置id
         Conference conference=conferenceService.findOneByConfId(detailFrom.getConfId());
+        if(conference==null){
+            return null;
+        }
         conference.setConfDetailId(detail.getConfDetailId());
         //设置状态
         conference.setStatus(ConfStatusEnum.COMPLETED_DETAIL_STATUS.getCode());
         //保存
+        if (detailFrom.getPaperCollectionDate().length==2){
+            detail.setPaperCollectionStart(detailFrom.getPaperCollectionDate()[0]);
+            detail.setPaperCollectionEnd(detailFrom.getPaperCollectionDate()[1]);
+        }
+        if (detailFrom.getPayDate().length==2){
+            detail.setPayStartTime(detailFrom.getPayDate()[0]);
+            detail.setPayEndTime(detailFrom.getPayDate()[1]);
+        }
+        conference.setConfIntroduce(detailFrom.getConfIntroduce());
         ConferenceDetail conferenceDetail=null;
         try {
             conferenceService.saveOne(conference);

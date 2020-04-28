@@ -15,4 +15,23 @@ public enum ConfIsOnLineEnum {
     ;
     private int code;
     private String message;
+
+    public static ConfIsOnLineEnum getByCode(int code){
+        for(ConfIsOnLineEnum confIsOnLineEnum:ConfIsOnLineEnum.values()){
+            if (confIsOnLineEnum.getCode()==code){
+                return confIsOnLineEnum;
+            }
+        }
+        return null;
+    }
+
+    public static ConfIsOnLineEnum getByMsg(String msg){
+        for(ConfIsOnLineEnum confIsOnLineEnum:ConfIsOnLineEnum.values()){
+            if (confIsOnLineEnum.getMessage().equals(msg)){
+                return confIsOnLineEnum;
+            }
+        }
+        return null;
+    }
+
 }

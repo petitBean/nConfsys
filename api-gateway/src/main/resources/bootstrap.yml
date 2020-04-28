@@ -44,6 +44,8 @@ zuul:
   ribbon:   #zuul网关和各个调用服务之间的Ribbon进行客户端负载均衡的Client懒加载，导致第一次的请求调用包括了创建Ribbon Client的时间。
     eager-load:  #开启饥饿加载
       enabled: true
+  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin #处理跨域
+
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000

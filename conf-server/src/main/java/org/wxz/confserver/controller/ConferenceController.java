@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.wxz.confserver.from.CreateConfFrom;
 import org.wxz.confserver.service.impl.ConferenceDtailServiceimpl;
 import org.wxz.confserver.service.impl.ConferenceServiceImpl;
+import org.wxz.confserver.vo.ApplyJoinConfTableVo;
 import org.wxz.confserver.vo.DetailPageVo;
 import org.wxz.confserver.vo.HomeConfVo;
 import org.wxz.confserver.vo.HomePageVo;
@@ -93,6 +94,20 @@ public class ConferenceController {
         if (voList==null){
             return ConfResponse.fail("暂无相关信息");
         }
+        return ConfResponse.success(voList);
+    }
+
+    /**
+     * 申请介入会议时搜索
+     * @param key
+     * @return
+     */
+    @GetMapping(value = "/searche_by_IdOrNameLike")
+    public ConfResponse searcheByIdOrNameLike(@RequestParam(value = "key",required = true) String key){
+        if (key==null){
+            return null;
+        }
+        List<ApplyJoinConfTableVo> voList=conferenceService.getApplyJoinTableVo(key);
         return ConfResponse.success(voList);
     }
 
