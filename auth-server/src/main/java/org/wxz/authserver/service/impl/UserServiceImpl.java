@@ -4,6 +4,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wxz.authserver.enums.RoleEnum;
+import org.wxz.authserver.from.AddManagerFrom;
 import org.wxz.authserver.from.UserFrom;
 import org.wxz.authserver.repository.UserRepository;
 import org.wxz.authserver.service.UserService;
@@ -11,6 +12,7 @@ import org.wxz.authserver.util.BcryptEncoderUtil;
 import org.wxz.confsysdomain.nconfsysuser.Role;
 import org.wxz.confsysdomain.nconfsysuser.User;
 import org.wxz.confsysdomain.nconfsysuser.UserRole;
+import org.wxz.nconfsyscommon.enums.RoleNameEnum;
 import org.wxz.nconfsyscommon.enums.UserStatusEnum;
 import org.wxz.nconfsyscommon.utils.KeyUtil;
 
@@ -68,7 +70,7 @@ public class UserServiceImpl implements UserService {
         newUser.setPassword(BcryptEncoderUtil.toBcryptString(newUser.getPassword()));
         newUser.setCreateDate(new Date());
 
-        Role role=roleService.findByRoleName(RoleEnum.ROLE_USER.getRoleName());
+        Role role=roleService.findByRoleName(RoleNameEnum.ROLE_USER.getRoleName());
         UserRole userRole=new UserRole();
         userRole.setRoleId(role.getRoleId());
         userRole.setUserId(newUser.getUserId());

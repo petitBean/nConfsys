@@ -28,4 +28,5 @@ public interface RoleService {
 
     List<Role> findListByRoleNameIn(List<String> roleNameList);
 
+
 }

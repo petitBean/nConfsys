@@ -19,4 +19,12 @@ public interface ApplicationRepository extends JpaRepository<Application,String>
 
     List<Application> findAllByUserName(String userName);
 
+    List<Application> findAllByUserNameAndAndStatus(String userName,int status);
+
+    List<Application> findAllByConfIdAndStatus(String confId,int status);
+
+    Application findByApplicationId(String applicationId);
+
+    List<Application> findAllByConfIdAndStatusAndUserNameNotIn(String confId,int status,List<String> userNameList);
+
 }

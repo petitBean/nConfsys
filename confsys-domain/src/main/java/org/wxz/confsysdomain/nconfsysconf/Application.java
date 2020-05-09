@@ -28,6 +28,8 @@ public class Application {
 
     private int status;
 
+    private String reason;
+
     private Date applyData;
 
     private Date dealDate;

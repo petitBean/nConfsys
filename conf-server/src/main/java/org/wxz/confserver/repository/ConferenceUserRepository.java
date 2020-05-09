@@ -19,5 +19,9 @@ public interface ConferenceUserRepository extends JpaRepository<ConferenceUer,St
 
     List<ConferenceUer> findAllByUserName(String userName);
 
+    List<ConferenceUer> findAllByConfId(String confId);
+
+    List<ConferenceUer> findAllByConfIdAndRoleName(String conId,String roleName);
+
 
 }

@@ -8,9 +8,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  */
 public class BcryptEncoderUtil {
 
+    private static BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+
     public static String toBcryptString(String  string){
-        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
         return encoder.encode(string);
+    }
+
+    public static boolean compare(String encodedPass,String password){
+        return encoder.matches(encodedPass,password);
     }
 
 }

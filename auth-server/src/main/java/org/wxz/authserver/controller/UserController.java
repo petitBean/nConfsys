@@ -55,10 +55,14 @@ public class UserController {
         return ConfResponse.success(user);
     }
 
+
+
     @GetMapping(value = "/teacher/r2")
     @PreAuthorize("hasAnyAuthority('p1','p2')")
     public String r2(){
         return "访问资源2";
     }
+
+
 
 }

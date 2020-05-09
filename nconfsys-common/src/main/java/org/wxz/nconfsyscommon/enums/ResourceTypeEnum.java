@@ -14,6 +14,7 @@ public enum ResourceTypeEnum {
     RESOURCE_TYPE_IMG(0,"IMG","图片"),
     RESOURCE_TYPE_DOC(1,"DOC","文档"),
     RESOURCE_TYPE_ZIP(2,"ZIP","压缩文件"),
+    RESOURCE_TYPE_EXCL(4,"EXCL","表格"),
     RESOURCE_TYPE_ELSE(3,"ELSE","其他"),
     ;
     private int code;

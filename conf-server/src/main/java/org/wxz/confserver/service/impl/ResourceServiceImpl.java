@@ -48,7 +48,8 @@ public class ResourceServiceImpl implements ResourceService {
         Resource resource=new Resource();
         Resource founded=findOneByOriginName(resourceFrom.getOriginName());
         if (founded!=null){
-            throw new ConfException("同名文件已存在！");
+            log.info("同名文件已存在！");
+            //throw new ConfException("同名文件已存在！");
         }
         BeanUtils.copyProperties(resourceFrom,resource);
         resource.setResourceId(KeyUtil.getUniqueKey());
@@ -72,5 +73,35 @@ public class ResourceServiceImpl implements ResourceService {
         return resourceRepository.findAllByOriginNameLike(key);
     }
 
-    
+    @Override
+    public void downLoadTimeAdd(String resourceId) throws Exception{
+        Resource resource=null;
+        try {
+           resource=findByResourceId(resourceId);
+        }catch (Exception e){
+            log.error("增加下载次数-异常-查询资源出错；e:{}",e.getMessage()+e.getCause()+e.getStackTrace());
+            throw new ConfException("查询资源信息出错");
+        }
+        if (resource==null){
+            log.error("增加下载次数-异常-查询资源出错；");
+            throw new ConfException("资源为空");
+        }
+        int times=resource.getDownloadTimes()+1;
+        resource.setDownloadTimes(times);
+        try {
+            saveOne(resource);
+        }
+        catch (Exception e){
+            log.error("增加下载次数-异常-存储失败；e:{}",e.getMessage()+e.getCause()+e.getStackTrace());
+            throw new ConfException("存储失败");
+        }
+        log.info("增加资源下载次数！-成功-time={}",times);
+    }
+
+    @Override
+    public Resource findByResourceId(String resourceId) throws Exception {
+        return resourceRepository.findByResourceId(resourceId);
+    }
+
+
 }

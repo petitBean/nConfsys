@@ -21,4 +21,6 @@ public interface ResourceRepository extends JpaRepository<Resource,String> {
     @Query("select resource from Resource resource  where resource.originName like %?1%")
     List<Resource> findAllByOriginNameLike(String key);
 
+    Resource findByResourceId(String resourceId);
+
 }

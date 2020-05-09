@@ -27,7 +27,7 @@ public class Resource {
 
     private int type;
 
-    private String OriginName;
+    private String originName;
 
     private String storeName;
 

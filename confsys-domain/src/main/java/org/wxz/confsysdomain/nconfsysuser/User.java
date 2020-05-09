@@ -41,4 +41,8 @@ public class User {
 
     private Date lastLoginTime;
 
+    private String name;
+
+    private String address;
+
 }

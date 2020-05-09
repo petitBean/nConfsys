@@ -1,5 +1,6 @@
 package org.wxz.confserver.service.impl;
 
+import com.netflix.appinfo.MyDataCenterInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
 import org.springframework.beans.BeanUtils;
@@ -13,12 +14,12 @@ import org.wxz.confserver.repository.ConferenceRepository;
 import org.wxz.confserver.service.ConferenceService;
 import org.wxz.confserver.service_api.RoleApiService;
 import org.wxz.confserver.vo.*;
-import org.wxz.confsysdomain.nconfsysconf.Conference;
-import org.wxz.confsysdomain.nconfsysconf.ConferenceDetail;
-import org.wxz.confsysdomain.nconfsysconf.ConferenceTag;
-import org.wxz.confsysdomain.nconfsysconf.Tag;
+import org.wxz.confsysdomain.nconfsysconf.*;
 import org.wxz.confsysdomain.nconfsysuser.Role;
+import org.wxz.confsysdomain.nconfsysuser.User;
+import org.wxz.confsysdomain.paper.Solicite;
 import org.wxz.confsysdomain.relation.ConferenceUer;
+import org.wxz.nconfsyscommon.enums.ApplicationStatusEnum;
 import org.wxz.nconfsyscommon.enums.ConfIsOnLineEnum;
 import org.wxz.nconfsyscommon.enums.ConfStatusEnum;
 import org.wxz.nconfsyscommon.enums.RoleNameEnum;
@@ -55,6 +56,16 @@ public class ConferenceServiceImpl implements ConferenceService {
     @Autowired
     private RoleServiceImpl roleService;
 
+    @Autowired
+    private ApplicationServiceImpl applicationService;
+
+    @Autowired
+    private UserServiceImpl userService;
+
+    @Autowired
+    private PayCategoryServiceImpl payCategoryService;
+
+    private SoliciteServiceIml soliciteServiceIml;
 
     @Override
     @Transactional(rollbackOn = Exception.class)
@@ -189,6 +200,158 @@ public class ConferenceServiceImpl implements ConferenceService {
     public List<Conference> findListByConfNameLike(String key) {
         return conferenceRepository.findAllByConfNameLike(key);
     }
+
+    /**
+     * 获取用户接入的会议列表
+     * @param userName
+     * @return
+     */
+    @Override
+    public List<ApplyJoinConfTableVo> getUserJoinedConference(String userName) {
+        //查询已通过
+        List<Application> applicationsPassed=applicationService.findListByUserNameAndAndStatus(userName, ApplicationStatusEnum.APPLICATION_STATUS_PASSED.getCode());
+        //查询待审核
+        List<Application> applicationsNew=applicationService.findListByUserNameAndAndStatus(userName,ApplicationStatusEnum.APPLICATION_STATUS_NEW.getCode());
+        //查询未通过的
+        List<Application> applicationsRefused=applicationService.findListByUserNameAndAndStatus(userName,ApplicationStatusEnum.APPLICATION_STATUS_REFUSED.getCode());
+        //数据拼接
+        List<ApplyJoinConfTableVo> result=new LinkedList<>();
+        result.addAll(getApplyJoinConfTableByApListAndStatus(applicationsNew,ApplicationStatusEnum.APPLICATION_STATUS_NEW.getCode()));
+        result.addAll( getApplyJoinConfTableByApListAndStatus(applicationsPassed,ApplicationStatusEnum.APPLICATION_STATUS_REFUSED.getCode()));
+        result.addAll(getApplyJoinConfTableByApListAndStatus(applicationsRefused,ApplicationStatusEnum.APPLICATION_STATUS_REFUSED.getCode()));
+
+        return result;
+    }
+
+    /**
+     * 查询用户管理的会议列表
+     * @param userName
+     * @return
+     */
+    @Override
+    public List<MyManagConfTableVo> getMyManagConfTableVo(String userName) {
+        List<ConferenceUer> conferenceUerList=conferenceUserService.findListByUserName(userName);
+        List<String> confIdList=new LinkedList<>();
+        if (conferenceUerList==null){
+            return null;
+        }
+        Map<String,String> conferenceUerMap=new HashMap<>();
+        for (ConferenceUer conferenceUer:conferenceUerList){
+            confIdList.add(conferenceUer.getConfId());
+            conferenceUerMap.put(conferenceUer.getConfId(),conferenceUer.getRoleName());
+        }
+        List<Conference> conferenceList=conferenceRepository.findAllByConfIdIn(confIdList);
+        if (conferenceList==null){
+            return null;
+        }
+
+        List<MyManagConfTableVo> voList=new LinkedList<>();
+        for (Conference conference:conferenceList){
+            MyManagConfTableVo vo=new MyManagConfTableVo();
+            BeanUtils.copyProperties(conference,vo);
+            vo.setConfStatusStr(ConfStatusEnum.getByCode(conference.getStatus()).getMessage());
+
+            vo.setRoleName(conferenceUerMap.get(conference.getConfId()));
+            try {
+                vo.setStartTimeStr(DateUtil.dateMinuteToStr(conference.getStartTime()));
+            }catch (Exception e){
+                log.error("查询用户管理的会议列表-错误-时间格式转换错误");
+            }
+            voList.add(vo);
+        }
+        return voList;
+    }
+
+    /**
+     * 查询工作人员列表
+     * @param confId
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public List<ManagerVo> getManagerVo(String confId) throws Exception {
+        if (confId==null){
+            log.error("查询工作组成员列表-失败-confId=null");
+
+        }
+        List<ConferenceUer> conferenceUerList=conferenceUserService.findAllByConfId(confId);
+        if(conferenceUerList==null){
+            return null;
+        }
+        List<String> userNameList=new LinkedList<>();
+        Map<String,String> roleNameMap=new HashMap<>();
+        for (ConferenceUer conferenceUer:conferenceUerList){
+            userNameList.add(conferenceUer.getUserName());
+            roleNameMap.put(conferenceUer.getUserName(),conferenceUer.getRoleName());
+        }
+        if (userNameList==null){
+            log.warn("查询工作人员列表-用户名为空！");
+            return null;
+        }
+        List<User> userList=userService.findListByUserNameIn(userNameList);
+        if (userList==null){
+            log.warn("查询工作人员列表-用户信息为空！");
+            return null;
+        }
+        List<ManagerVo> voList=new LinkedList<>();
+
+        for (User user:userList){
+            ManagerVo vo=new ManagerVo();
+            BeanUtils.copyProperties(user,vo);
+            String roleMessage=RoleNameEnum.getByRoleName(roleNameMap.get(user.getUserName())).getMessage();
+            vo.setRoleMessage(roleMessage);
+            voList.add(vo);
+        }
+        return voList;
+    }
+
+    public List<ApplyJoinConfTableVo> getApplyJoinConfTableByApListAndStatus(List<Application> applicationList,int status)  {
+        List<String> confIdList=new LinkedList<>();
+        if (applicationList==null){
+            return null;
+        }
+        for (Application application: applicationList){
+            confIdList.add(application.getConfId());
+        }
+        List<Conference> conferenceList=findListByConfIdIn(confIdList);
+        if (conferenceList==null){
+            return null;
+        }
+        List<ApplyJoinConfTableVo> voList=new LinkedList<>();
+        for (Conference conference:conferenceList){
+            ApplyJoinConfTableVo vo=new ApplyJoinConfTableVo();
+            Solicite solicite=null;
+            PayCategory payCategory=null;
+            try {
+                solicite=soliciteServiceIml.findOneByConfId(conference.getConfId());
+                payCategory=payCategoryService.findOneByConfId(conference.getConfId());
+            }catch (Exception e){
+
+            }
+            if (solicite!=null&&status==ApplicationStatusEnum.APPLICATION_STATUS_REFUSED.getCode()){
+                solicite.setDemand("您没有提交论文权限");
+                solicite.setStatus(99);
+            }
+            if (payCategory!=null&&status==ApplicationStatusEnum.APPLICATION_STATUS_REFUSED.getCode()){
+                payCategory.setPayDemand("您没有提交论文权限");
+                payCategory.setStatus(99);
+            }
+            vo.setSolicite(solicite);
+            vo.setPayCategory(payCategory);
+            BeanUtils.copyProperties(conference,vo);
+            try {
+                vo.setStartTimeStr(DateUtil.dateMinuteToStr(conference.getStartTime()));
+            }catch (Exception e){
+                log.error("通过申请表返回vo-时间转换错误：date={}",conference.getStartTime());
+            }
+            vo.setConfStatusStr(ConfStatusEnum.getByCode(conference.getStatus()).getMessage());
+            vo.setStatus(conference.getStatus());
+            vo.setApplicationStatus(ApplicationStatusEnum.getByCode(status).getMessage());
+            voList.add(vo);
+        }
+        return voList;
+    }
+
     @Override
     public List<Conference> findAllConfTopicLike(String key) {
         return conferenceRepository.findAllByConfTopicLike(key);
@@ -242,6 +405,12 @@ public class ConferenceServiceImpl implements ConferenceService {
         for (Conference conference:conferenceList){
             ApplyJoinConfTableVo vo=new ApplyJoinConfTableVo();
             BeanUtils.copyProperties(conference,vo);
+            vo.setConfStatusStr(ConfStatusEnum.getByCode(conference.getStatus()).getMessage());
+            try {
+                vo.setStartTimeStr(DateUtil.dateMinuteToStr(conference.getStartTime()));
+            }catch (Exception e){
+                log.error("申请-查询会议-时间转换错误：date={}",conference.getStartTime());
+            }
             voList.add(vo);
         }
         return voList;

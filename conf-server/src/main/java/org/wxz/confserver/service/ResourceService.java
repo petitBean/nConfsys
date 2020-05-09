@@ -21,5 +21,8 @@ public interface ResourceService {
 
     List<Resource> findListByOriginNameLike(String key);
 
+    void downLoadTimeAdd(String resourceId) throws Exception;
+
+    Resource findByResourceId(String resourceId) throws Exception;
 
 }

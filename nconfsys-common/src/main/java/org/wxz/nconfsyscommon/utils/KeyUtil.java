@@ -18,4 +18,14 @@ public class KeyUtil {
         Integer a=random.nextInt(900000)+100000;//生成六位数
         return System.currentTimeMillis()+String.valueOf(a);
     }
+
+    /**
+     * 获取验证码
+     * @return
+     */
+    public static synchronized String getIdentiCode(){
+        Random random=new Random();
+        Integer code=random.nextInt(99999)+100000;
+        return String.valueOf(code);
+    }
 }

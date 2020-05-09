@@ -1,5 +1,7 @@
 package org.wxz.authserver.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.wxz.confsysdomain.nconfsysuser.User;
@@ -12,5 +14,7 @@ import org.wxz.confsysdomain.nconfsysuser.User;
 public interface UserRepository extends JpaRepository<User,String> {
 
     User findByUserName(String userName);
+
+    Page<User> findAll(Pageable pageable);
 
 }

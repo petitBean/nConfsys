@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @Author xingze Wang
  * @create 2020/4/28 23:19
@@ -14,5 +16,9 @@ import lombok.NoArgsConstructor;
 public class PersonalCenterVo {
 
  private int code;
+
+ List<ApplyJoinConfTableVo> joinedConference;
+
+ List<MyManagConfTableVo> myManagConfTableVoList;
 
 }

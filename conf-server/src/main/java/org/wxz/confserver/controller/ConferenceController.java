@@ -1,16 +1,16 @@
 package org.wxz.confserver.controller;
 
+import jdk.nashorn.internal.objects.annotations.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.wxz.confserver.from.CreateConfFrom;
-import org.wxz.confserver.service.impl.ConferenceDtailServiceimpl;
-import org.wxz.confserver.service.impl.ConferenceServiceImpl;
-import org.wxz.confserver.vo.ApplyJoinConfTableVo;
-import org.wxz.confserver.vo.DetailPageVo;
-import org.wxz.confserver.vo.HomeConfVo;
-import org.wxz.confserver.vo.HomePageVo;
+import org.wxz.confserver.service.impl.*;
+import org.wxz.confserver.vo.*;
+import org.wxz.confsysdomain.nconfsysconf.Application;
 import org.wxz.confsysdomain.nconfsysconf.Conference;
+import org.wxz.confsysdomain.paper.Solicite;
+import org.wxz.nconfsyscommon.enums.ApplicationStatusEnum;
 import org.wxz.nconfsyscommon.resultVO.ConfResponse;
 
 import javax.xml.crypto.Data;
@@ -29,6 +29,18 @@ public class ConferenceController {
     @Autowired
     private ConferenceServiceImpl conferenceService;
 
+    @Autowired
+    private ApplicationServiceImpl applicationService;
+
+    @Autowired
+    private UserServiceImpl userService;
+
+    @Autowired
+    private PaperServiceImpl paperService;
+
+    @Autowired
+    private SoliciteServiceIml soliciteServiceIml;
+
     /**
      * 创建会议
      * @param createConfFrom
@@ -44,6 +56,7 @@ public class ConferenceController {
             log.error("创建会议-失败：from={},Exception={}",createConfFrom,e.getStackTrace());
             return ConfResponse.error();
         }
+        log.info("创建会议-成功：会议id={}",conference.getConfId());
         return ConfResponse.success(conference);
     }
 
@@ -94,6 +107,7 @@ public class ConferenceController {
         if (voList==null){
             return ConfResponse.fail("暂无相关信息");
         }
+        log.info("查询用户加入到会议-成功");
         return ConfResponse.success(voList);
     }
 
@@ -112,4 +126,111 @@ public class ConferenceController {
     }
 
 
+    /**
+     * 获取用户已经加入的会议视图列表
+     * @param userNam
+     * @return
+     */
+    @GetMapping(value = "/get_Joined_Conferencelist")
+    public ConfResponse getUserJoinedConferenceList(@RequestParam(value = "userName",required = true) String userNam){
+        log.info(userNam);
+        List<ApplyJoinConfTableVo> result=conferenceService.getUserJoinedConference(userNam);
+        return ConfResponse.success(result);
+    }
+
+
+
+    @GetMapping("/")
+    public ConfResponse getMyManagConfTableVo(@RequestParam(value = "username",required = true)String userName){
+        return null;
+    }
+
+    @GetMapping("/initpersonal")
+    public ConfResponse initPersonal(@RequestParam(value = "username")String userName){
+        if (userName==null){
+            log.error("用户中心初始化-错误-用户名参数未空");
+            return ConfResponse.fail("系统异常");
+        }
+        List<ApplyJoinConfTableVo> joinedConference=conferenceService.getUserJoinedConference(userName);
+        List<MyManagConfTableVo> myManagConfTableVoList=conferenceService.getMyManagConfTableVo(userName);
+
+        PersonalCenterVo personalCenterVo=new PersonalCenterVo();
+        personalCenterVo.setJoinedConference(joinedConference);
+        personalCenterVo.setMyManagConfTableVoList(myManagConfTableVoList);
+        log.info("初始化用户中心-成功：result={},userName={}",personalCenterVo,userName);
+        return ConfResponse.success(personalCenterVo);
+    }
+
+
+    @GetMapping("/initconfmanagecenter")
+    public ConfResponse initConfmanageCenter(@RequestParam(value = "confId")String confId){
+        if (confId==null){
+            log.error("会议管理中心初始化-错误-会议id参数为空");
+            return ConfResponse.fail("系统异常");
+        }
+        List<ApplicationManageVo> applicationManageVos=null;
+        List<ApplicationManageVo> passedVo=null;
+        List<ManagerVo> workerList=null;
+        try {
+            applicationManageVos=applicationService.getApplicationManageVo(confId);
+            passedVo=applicationService.getApplicationManageVoByConfIdAndStatus(confId, ApplicationStatusEnum.APPLICATION_STATUS_PASSED);
+            workerList=conferenceService.getManagerVo(confId);
+        }catch (Exception e){
+             log.error("会议管理中心初始化-错误：e={}",e.getMessage()+e.getCause());
+        }
+        //添加参会人员列表
+        ConfManageCenterVo result=new ConfManageCenterVo();
+        result.setApplicationManageVoList(applicationManageVos);
+        result.setPassedVolist(passedVo);
+        result.setWorkerList(workerList);
+        log.info("会议管理中心初始化-成功，result={},confId={}",result,confId);
+
+        return ConfResponse.success(result);
+    }
+
+
+    @GetMapping("/initpapermanagcenter")
+    public ConfResponse initConfManagCenter(@RequestParam(value = "confId",required = true)String confId){
+        if (confId==null){
+            log.error("初始论文管理中心-失败-会议id空");
+            return ConfResponse.fail("请求参数错误");
+        }
+        List<UserVo> professorList=null;
+        List<PaperVo> paperVoList=null;
+        Solicite solicite=null;
+        List<PaperViewResultVo> viewResultVos=null;
+
+        try {
+            professorList=userService.getProfessorList(confId);
+        }catch (Exception e){
+            log.error("初始化论文管理中心-错误：e={}",e.getMessage()+e.getStackTrace());
+        }
+
+        try {
+            paperVoList=paperService.getPaperVolistByConfid(confId);
+        }catch (Exception e){
+            log.error("初始化论文管理中心-paperVoList错误：e={}",e.getMessage()+e.getStackTrace());
+        }
+        try {
+            solicite=soliciteServiceIml.findOneByConfId(confId);
+        }catch (Exception e){
+            log.error("初始化论文管理中心-solicite错误：e={}",e.getMessage()+e.getStackTrace());
+        }
+        try {
+            viewResultVos=paperService.getPaperViewRsultList(confId);
+        }catch (Exception e){
+            log.error("初始化论文管理中心-viewResultVos=错误：e={}",e.getMessage()+e.getStackTrace());
+        }
+        PaperManagCenterVo paperManagCenterVo=new PaperManagCenterVo();
+        paperManagCenterVo.setPaperVoList(paperVoList);
+        paperManagCenterVo.setProfessorList(professorList);
+        paperManagCenterVo.setSolicite(solicite);
+        paperManagCenterVo.setViewResultVoList(viewResultVos);
+        log.info("初始化会议管理中心result={}",paperManagCenterVo);
+        return ConfResponse.success(paperManagCenterVo);
+
+    }
 }
+
+
+

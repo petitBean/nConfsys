@@ -11,16 +11,27 @@ import lombok.Getter;
 @Getter
 public enum RoleNameEnum {
 
-    ROLE_USER(1,"ROLE_USER"),
-    ROLE_PROGESSOR(2,"ROLE_PROGESSOR"),
-    ROLE_PAPER_MANAGER(3,"ROLE_PAPER_MANAGER"),
-    ROLE_INFO_MANAGER(4,"ROLE_INFO_MANAGER"),
-    ROLE_FINANCER(5,"ROLE_FINANCER"),
-    ROLE_SECRETARY(6,"ROLE_SECRETARY"),
-
+    ROLE_USER(1,"ROLE_USER","普通用户"),
+    ROLE_PROGESSOR(2,"ROLE_PROGESSOR","专家"),
+    ROLE_PAPER_MANAGER(3,"ROLE_PAPER_MANAGER","论文管理员"),
+    ROLE_INFO_MANAGER(4,"ROLE_INFO_MANAGER","会议信息管理员"),
+    ROLE_FINANCER(5,"ROLE_FINANCER","财务管理"),
+    ROLE_SECRETARY(6,"ROLE_SECRETARY","秘书组"),
 
     ;
     private int code;
 
     private String roleName;
+
+    private String message;
+
+    public static RoleNameEnum getByRoleName(String roleName){
+        for (RoleNameEnum roleNameEnum:RoleNameEnum.values()){
+            if (roleNameEnum.getRoleName().equals(roleName)){
+                return roleNameEnum;
+            }
+        }
+        return null;
+    }
+
 }

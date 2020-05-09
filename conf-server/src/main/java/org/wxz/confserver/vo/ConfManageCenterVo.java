@@ -20,6 +20,12 @@ public class ConfManageCenterVo {
      */
     private List<ConfManagTableVo> tableVoList;
 
+    List<ApplicationManageVo> applicationManageVoList;
+
+    List<ApplicationManageVo> passedVolist;
+
+    List<ManagerVo> workerList;
+
     private String code="bbbbb";
 
     //加上通知公告列表

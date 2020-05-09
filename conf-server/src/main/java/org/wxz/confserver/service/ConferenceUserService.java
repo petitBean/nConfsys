@@ -18,4 +18,9 @@ public interface ConferenceUserService {
 
     List<ConferenceUer> findListByUserName(String userId);
 
+    List<ConferenceUer> findAllByConfId(String confId);
+
+    List<ConferenceUer> findAllByConfIdAndRoleName(String conId,String roleName);
+
+
 }

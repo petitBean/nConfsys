@@ -1,5 +1,6 @@
 package org.wxz.authserver.service;
 
+import org.wxz.authserver.from.AddManagerFrom;
 import org.wxz.authserver.from.UserFrom;
 import org.wxz.confsysdomain.nconfsysuser.User;
 
@@ -21,4 +22,6 @@ public interface UserService {
     public String getPasswordByUserName(String userName);
 
     User userRegister(UserFrom userFrom) throws Exception;
+
+
 }

@@ -39,4 +39,14 @@ public class ConferenceUserServiceImpl implements ConferenceUserService {
     public List<ConferenceUer> findListByUserName(String userName) {
         return conferenceUserRepository.findAllByUserName(userName);
     }
+
+    @Override
+    public List<ConferenceUer> findAllByConfId(String confId) {
+        return conferenceUserRepository.findAllByConfId(confId);
+    }
+
+    @Override
+    public List<ConferenceUer> findAllByConfIdAndRoleName(String conId, String roleName) {
+        return conferenceUserRepository.findAllByConfIdAndRoleName(conId,roleName);
+    }
 }

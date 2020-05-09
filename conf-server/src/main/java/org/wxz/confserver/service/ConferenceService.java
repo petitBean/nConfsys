@@ -50,5 +50,12 @@ public interface ConferenceService {
 
      List<Conference> findListByConfNameLike(String key) ;
 
+     List<ApplyJoinConfTableVo> getUserJoinedConference(String userName);
+
+     List<MyManagConfTableVo> getMyManagConfTableVo(String userName);
+
+     List<ManagerVo> getManagerVo(String confId)throws Exception;
+
+
 
 }
