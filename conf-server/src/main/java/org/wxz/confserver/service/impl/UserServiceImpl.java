@@ -173,6 +173,47 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(rollbackOn = Exception.class)
     public User userRegister(UserFrom userFrom) throws Exception {
+        User newUser=userRepository.findByUserName(userFrom.getUserName());
+        if (newUser!=null){
+            BeanUtils.copyProperties(userFrom,newUser);
+            throw new ConfException("用户名已经存在！");
+        }
+        else {
+            newUser=new User();
+            BeanUtils.copyProperties(userFrom,newUser);
+            newUser.setUserId(KeyUtil.getUniqueKey());
+            newUser.setStatus(UserStatusEnum.NEW_USER_STATUS.getCode());
+            newUser.setPassword(BcryptEncoderUtil.toBcryptString(newUser.getPassword()));
+            newUser.setCreateDate(new Date());
+        }
+        Role role=roleService.findByRoleName(RoleNameEnum.ROLE_USER.getRoleName());
+        if (role==null){
+            log.error("用户角色错误！");
+            throw new ConfException("用户角色错误！");
+        }
+        UserRole userRole=new UserRole();
+        userRole.setRoleId(role.getRoleId());
+        userRole.setUserId(newUser.getUserId());
+        try{
+            userRole=userRoleService.saveOne(userRole);
+        }
+        catch (Exception e){
+            log.error("用户-角色关系保存失败！");
+            throw new ConfException("用户-角色关系保存失败！");
+        }
+        User re=null;
+        try {
+            re=userRepository.save(newUser);
+        }catch (Exception e){
+            log.error("用户信息保存失败！");
+            throw new ConfException("用户信息保存失败！");
+        }
+        return re;
+    }
+
+
+    @Transactional(rollbackOn = Exception.class)
+    public User userRegister2(UserFrom userFrom,String name) throws Exception {
         User old=userRepository.findByUserName(userFrom.getUserName());
         if (old!=null){
             throw new ConfException("用户名已经存在！");
@@ -180,6 +221,7 @@ public class UserServiceImpl implements UserService {
         User newUser=new User();
         BeanUtils.copyProperties(userFrom,newUser);
         newUser.setUserId(KeyUtil.getUniqueKey());
+        newUser.setName(name);
         newUser.setStatus(UserStatusEnum.NEW_USER_STATUS.getCode());
         newUser.setPassword(BcryptEncoderUtil.toBcryptString(newUser.getPassword()));
         newUser.setCreateDate(new Date());
@@ -209,14 +251,28 @@ public class UserServiceImpl implements UserService {
         return re;
     }
 
+    @Transactional(rollbackOn = Exception.class)
     @Override
     public User addManager(AddManagerFrom from) throws Exception {
         if(from==null){
             return null;
         }
+        User user=null;
+        user=findByUserName(from.getUserName());
+        if (user!=null){
+            throw new ConfException("用户已经创建");
+        }
         UserFrom userFrom=new UserFrom();
         BeanUtils.copyProperties(from,userFrom);
-        User user= userRegister(userFrom);
+        try {
+            user= userRegister(userFrom);
+        }catch (Exception e){
+            throw new ConfException(e.getMessage());
+        }
+
+        if (user==null){
+            return null;
+        }
         user.setName(from.getName());
         try {
             user= userRepository.save(user);
@@ -229,7 +285,7 @@ public class UserServiceImpl implements UserService {
         try {
             conferenceUserService.saveOne(conferenceUer);
         }catch (Exception e){
-            log.error("添加会议管理-会议-用户关系保存失败！e={}",e.getStackTrace());
+            log.error("添加会议管理-会议-用户关系保存失败！e={}",e.getMessage());
             throw new ConfException("添加会议管理-会议-用户关系保存失败！");
         }
         return user;
@@ -250,6 +306,7 @@ public class UserServiceImpl implements UserService {
         List<ConferenceUer> conferenceUerList=conferenceUserService.findAllByConfIdAndRoleName(confId,roleName);
         if (conferenceUerList==null){
             log.warn("查找UserVo-cu为空");
+            return null;
         }
         List<String> usernameList=new LinkedList<>();
         for (ConferenceUer conferenceUer:conferenceUerList){
@@ -257,7 +314,7 @@ public class UserServiceImpl implements UserService {
                 usernameList.add(conferenceUer.getUserName());
             }
         }
-        if (usernameList==null){
+        if (usernameList.isEmpty()){
             log.error("查找uservo-失败-不存在用户信息");
             return null;
         }

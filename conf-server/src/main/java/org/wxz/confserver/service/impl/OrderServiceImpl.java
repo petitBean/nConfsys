@@ -1,23 +1,20 @@
 package org.wxz.confserver.service.impl;
 
-import javafx.scene.chart.CategoryAxis;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.wxz.confserver.from.OrderFrom;
-import org.wxz.confserver.repository.OrderRepository;
+import org.wxz.confserver.repository.PayOrderRepository;
 import org.wxz.confserver.service.OrderService;
 import org.wxz.confserver.vo.FinancerVo;
 import org.wxz.confsysdomain.nconfsysconf.Application;
-import org.wxz.confsysdomain.nconfsysconf.Order;
 import org.wxz.confsysdomain.nconfsysconf.PayCategory;
+import org.wxz.confsysdomain.nconfsysconf.PayOrder;
 import org.wxz.confsysdomain.nconfsysuser.User;
 import org.wxz.nconfsyscommon.enums.ApplicationStatusEnum;
 import org.wxz.nconfsyscommon.enums.OrderStatusEnum;
 import org.wxz.nconfsyscommon.exception.ConfException;
-import org.wxz.nconfsyscommon.resultVO.ConfResponse;
 import org.wxz.nconfsyscommon.utils.KeyUtil;
 
 import javax.transaction.Transactional;
@@ -32,7 +29,7 @@ import java.util.*;
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
-    private OrderRepository orderRepository;
+    private PayOrderRepository payOrderRepository;
 
     @Autowired
     private UserServiceImpl userService;
@@ -44,13 +41,20 @@ public class OrderServiceImpl implements OrderService {
     private PayCategoryServiceImpl categoryService;
 
     @Override
-    public Order findOneByConfIdAndUserName(String confId, String userName) throws Exception {
-        return orderRepository.findByConfIdAndUserName(confId,userName);
+    public PayOrder findOneByConfIdAndUserName(String confId, String userName) throws Exception {
+        return payOrderRepository.findByConfIdAndUserName(confId,userName);
     }
 
     @Override
-    public List<Order> findListByConfIdAndStatus(String confId, int status) throws Exception {
-        return findListByConfIdAndStatus(confId,status);
+    public List<PayOrder> findListByConfIdAndStatus(String confId, int status) throws Exception {
+        List<PayOrder> payOrders=null;
+        try {
+            payOrders=payOrderRepository.findAllByConfIdAndStatus(confId,status);
+        }catch (Exception e){
+            log.info(confId+'s'+status);
+            log.info(e.getMessage()+e.getCause()+e.getStackTrace());
+        }
+        return payOrders;
     }
 
     @Override
@@ -59,7 +63,7 @@ public class OrderServiceImpl implements OrderService {
             log.error("查询已缴费清单-错误-参数为空");
             return null;
         }
-        List<Order> orderList=findListByConfIdAndStatus(confId, OrderStatusEnum.ORDER_STATUS_ENUM_PAYED.getCode());
+        List<PayOrder> orderList=findListByConfIdAndStatus(confId, OrderStatusEnum.ORDER_STATUS_ENUM_PAYED.getCode());
         if (orderList==null){
             log.info("缴费清单为空！");
             return null;
@@ -67,7 +71,7 @@ public class OrderServiceImpl implements OrderService {
         List<String> userNameList=new LinkedList<>();
 
         Map<String,Double> orderMap=new HashMap<>();
-        for(Order order:orderList){
+        for(PayOrder order:orderList){
             userNameList.add(order.getUserName());
             orderMap.put(order.getUserName(),order.getAmount());
         }
@@ -88,15 +92,21 @@ public class OrderServiceImpl implements OrderService {
             log.error("查询未缴费清单-错误-参数为空");
             return null;
         }
-        List<Order> orderList=findListByConfIdAndStatus(confId, OrderStatusEnum.ORDER_STATUS_ENUM_PAYED.getCode());
+        List<PayOrder> orderList=findListByConfIdAndStatus(confId, OrderStatusEnum.ORDER_STATUS_ENUM_PAYED.getCode());
         List<String> userNameList=new LinkedList<>();
         if (orderList!=null){
-            for(Order order:orderList){
+            for(PayOrder order:orderList){
                 userNameList.add(order.getUserName());
             }
         }
 
-        List<Application> applicationList=applicationService.findListByConfIdAndStatusAndUserNameNotIn(confId, ApplicationStatusEnum.APPLICATION_STATUS_PASSED.getCode(),userNameList);
+        List<Application> applicationList=null;
+       if (userNameList.isEmpty()){
+           applicationList=applicationService.findAllByConfIdAndStatus(confId, ApplicationStatusEnum.APPLICATION_STATUS_PASSED.getCode());
+       }
+       else {
+           applicationList=applicationService.findListByConfIdAndStatusAndUserNameNotIn(confId, ApplicationStatusEnum.APPLICATION_STATUS_PASSED.getCode(),userNameList);
+       }
         if (applicationList==null){
             log.info("applicationlist==null");
             return null;
@@ -130,17 +140,17 @@ public class OrderServiceImpl implements OrderService {
 
     @Transactional(rollbackOn = Exception.class)
     @Override
-    public Order createOne(OrderFrom orderFrom) throws Exception {
+    public PayOrder createOne(OrderFrom orderFrom) throws Exception {
         if (orderFrom==null){
             log.error("创建order-失败-参数未空");
             throw new ConfException("请求错误");
         }
-        Order order=null;
+        PayOrder order=null;
         try {
             order=findOneByConfIdAndUserName(orderFrom.getConfId(),orderFrom.getUserName());
         }catch (Exception e){
             log.error("创建order-失败-查询order出错：e={}",e.getStackTrace()+e.getMessage()+e.getCause());
-            throw new ConfException("支付失败");
+            throw new ConfException("您已经支付");
         }
         if (order!=null){
             log.error("创建order-失败-已存在");
@@ -153,18 +163,19 @@ public class OrderServiceImpl implements OrderService {
             log.error("创建order-失败-查询category出错：e={}",e.getStackTrace()+e.getMessage()+e.getCause());
             throw new ConfException("请求失败！");
         }
-        if (category==null||Math.abs(category.getAmount()-orderFrom.getAmount())>0.01){
+        if (category==null/*||Math.abs(category.getAmount()-orderFrom.getAmount())>0.01*/){
             log.error("创建order-失败-金额不正确");
             throw new ConfException("金额不正确！");
         }
-        order=new Order();
+        order=new PayOrder();
         BeanUtils.copyProperties(orderFrom,order);
-        order.setOrderId(KeyUtil.getUniqueKey());
+        order.setAmount(category.getAmount());
+        order.setPayOrderId(KeyUtil.getUniqueKey());
         order.setStatus(OrderStatusEnum.ORDER_STATUS_ENUM_PAYED.getCode());
         order.setCreateDate(new Date());
 
         try {
-            orderRepository.save(order);
+            payOrderRepository.save(order);
         }catch (Exception e){
             log.error("创建order-失败-存储失败：e={}",e.getStackTrace()+e.getMessage()+e.getCause());
             throw new ConfException("请求失败！");

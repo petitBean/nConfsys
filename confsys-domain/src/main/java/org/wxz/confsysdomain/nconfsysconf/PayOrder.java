@@ -16,10 +16,10 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
+public class PayOrder {
 
     @Id
-    private String orderId;
+    private String payOrderId;
 
     private String userName;
 
@@ -31,6 +31,6 @@ public class Order {
 
     private int status;
 
-    private double amount;
+    private Double amount;
 
 }

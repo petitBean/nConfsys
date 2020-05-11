@@ -217,7 +217,7 @@ public class ConferenceServiceImpl implements ConferenceService {
         //数据拼接
         List<ApplyJoinConfTableVo> result=new LinkedList<>();
         result.addAll(getApplyJoinConfTableByApListAndStatus(applicationsNew,ApplicationStatusEnum.APPLICATION_STATUS_NEW.getCode()));
-        result.addAll( getApplyJoinConfTableByApListAndStatus(applicationsPassed,ApplicationStatusEnum.APPLICATION_STATUS_REFUSED.getCode()));
+        result.addAll( getApplyJoinConfTableByApListAndStatus(applicationsPassed,ApplicationStatusEnum.APPLICATION_STATUS_PASSED.getCode()));
         result.addAll(getApplyJoinConfTableByApListAndStatus(applicationsRefused,ApplicationStatusEnum.APPLICATION_STATUS_REFUSED.getCode()));
 
         return result;

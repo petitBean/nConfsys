@@ -1,6 +1,7 @@
 package org.wxz.confserver.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.wxz.confserver.from.ViewDemandFrom;
@@ -58,6 +59,27 @@ public class SoliciteServiceIml implements SoliciteService {
             log.error("创建solicite-错误-参数为空");
             throw  new ConfException("失败！参数为空！");
         }
+        Solicite solicite=null;
+        try {
+           solicite=soliciteRepository.findByConfId(confId);
+        }catch (Exception e){
+            log.info("solicite已经存在");
+            return null;
+        }
+        if (solicite!=null){
+            solicite.setDemand(demand);
+            solicite.setStartDate(startDate);
+            solicite.setEndDate(endDate);
+            solicite.setStatus(SoliciteStatusEnum.SOLICITE_STATUS_ENUM_CREATED.getCode());
+        }else {
+            solicite=new Solicite();
+            solicite.setConfId(confId);
+            solicite.setDemand(demand);
+            solicite.setSoliciteId(KeyUtil.getUniqueKey());
+            solicite.setStartDate(startDate);
+            solicite.setEndDate(endDate);
+            solicite.setStatus(SoliciteStatusEnum.SOLICITE_STATUS_ENUM_CREATED.getCode());
+        }
         Conference conference=conferenceService.findOneByConfId(confId);
         if (conference==null){
             log.error("创建solicite-错误-会议信息不存在");
@@ -69,14 +91,6 @@ public class SoliciteServiceIml implements SoliciteService {
             log.error("创建solicite-错误-会议详情不存在");
             throw  new ConfException("失败！！");
         }
-        detail.setPaperDemanded(demand);
-        Solicite solicite =new Solicite();
-        solicite.setConfId(confId);
-        solicite.setDemand(demand);
-        solicite.setSoliciteId(KeyUtil.getUniqueKey());
-        solicite.setStartDate(startDate);
-        solicite.setEndDate(endDate);
-        solicite.setStatus(SoliciteStatusEnum.SOLICITE_STATUS_ENUM_CREATED.getCode());
         conferenceService.saveOne(conference);
         dtailServiceimpl.saveOne(detail);
         return soliciteRepository.save(solicite);

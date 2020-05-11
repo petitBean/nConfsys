@@ -55,7 +55,7 @@ class PaperServiceImplTest {
 
     @Test
     void indListByProfessorUserNameAndConfIdAndStatus() throws Exception{
-        List<Paper> paperList=paperService.findListByProfessorUserNameAndConfIdAndStatus("13720131234","1588971220733419968", PaperStatusEnum.PAPER_STATUS_ENUM_NEW.getCode());
+        List<Paper> paperList=paperService.getViewdList("1589094239668741874","12345678005");
         return;
     }
 
@@ -63,9 +63,15 @@ class PaperServiceImplTest {
     void commentPaper() throws Exception{
         CommentFrom commentFrom=new CommentFrom();
         commentFrom.setComment("哈哈哈哈");
-        commentFrom.setScore(23.6);
-        commentFrom.setUserName("13720131233");
-        commentFrom.setPaperId("1588983128226675954");
+        commentFrom.setScore(23.8);
+        commentFrom.setUserName("13720131230");
+        commentFrom.setPaperId("1589122533629552247");
+        paperService.commentPaper(commentFrom);
+        commentFrom=new CommentFrom();
+        commentFrom.setComment("哈哈哈哈3");
+        commentFrom.setScore(23.7);
+        commentFrom.setUserName("12345678005");
+        commentFrom.setPaperId("1589122533761848449");
         paperService.commentPaper(commentFrom);
     }
 

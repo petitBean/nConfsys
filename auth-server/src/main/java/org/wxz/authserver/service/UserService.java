@@ -11,7 +11,7 @@ import org.wxz.confsysdomain.nconfsysuser.User;
 public interface UserService {
 
 
-    public User findOneByUserName(String userName);
+    public User findOneByUserName(String userName)throws Exception;
 
     /**
      * 根据用户名查找密码
@@ -19,7 +19,7 @@ public interface UserService {
      * @return
      */
 
-    public String getPasswordByUserName(String userName);
+    public String getPasswordByUserName(String userName) throws Exception;
 
     User userRegister(UserFrom userFrom) throws Exception;
 

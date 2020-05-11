@@ -40,4 +40,6 @@ public interface ApplicationService {
 
     List<Application> findListByConfIdAndStatusAndUserNameNotIn(String confId,int status,List<String> userNameList);
 
+    List<Application> findAllByConfIdAndStatus(String confId,int status);
+
 }

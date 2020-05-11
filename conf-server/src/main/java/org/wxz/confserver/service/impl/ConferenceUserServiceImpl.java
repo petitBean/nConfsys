@@ -32,6 +32,10 @@ public class ConferenceUserServiceImpl implements ConferenceUserService {
     @Override
     @Transactional(rollbackOn = Exception.class)
     public ConferenceUer saveOne(ConferenceUer conferenceUer) throws Exception {
+        ConferenceUer conferenceUer1=findByConfIdAndUserName(conferenceUer.getConfId(),conferenceUer.getUserName());
+        if (conferenceUer1!=null){
+            return null;
+        }
         return conferenceUserRepository.save(conferenceUer);
     }
 

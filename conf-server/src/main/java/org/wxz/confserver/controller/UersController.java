@@ -70,7 +70,7 @@ public class UersController {
             userService.addManager(addManagerForm);
         }catch (Exception e){
             log.error("添加会议管理工作人员-失败：e={}",e.getStackTrace());
-            return ConfResponse.fail();
+            return ConfResponse.fail(e.getMessage());
         }
         log.error("添加会议管理工作人员-成功");
         return ConfResponse.success();

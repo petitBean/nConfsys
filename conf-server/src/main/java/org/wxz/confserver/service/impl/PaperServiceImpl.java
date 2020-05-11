@@ -141,6 +141,10 @@ public class PaperServiceImpl implements PaperService {
             log.error("用户评阅论文-失败-查询paper异常 e={}",e.getMessage()+e.getCause());
             throw  new ConfException("评阅失败");
         }
+        if (paper==null){
+            log.info("论文不存在！ id={}",from.getPaperId());
+            throw new ConfException("论文不存在！");
+        }
         //判断自己是第几个专家
         if (paper.getProfessorUserName()!=null&&paper.getProfessorUserName().equals(from.getUserName())){
            paper.setFirstComment(from.getComment());
@@ -148,7 +152,7 @@ public class PaperServiceImpl implements PaperService {
            paper.setFirstStatus(PaperStatusEnum.PAPER_STATUS_ENUM_VIEWED.getCode());
            //判断第二个评论了没
             if (paper.getSecondStatus()==PaperStatusEnum.PAPER_STATUS_ENUM_VIEWED.getCode()){
-                paper.setScore((paper.getFirstScore()+paper.getSecondScore())/2.0);
+                paper.setScore((paper.getFirstScore()+paper.getSecondScore())/2);
                 paper.setStatus(PaperStatusEnum.PAPER_STATUS_ENUM_VIEWED.getCode());
             }else {
                 paper.setStatus(PaperStatusEnum.PAPER_STATUS_ENUM_VIEW.getCode());
@@ -159,7 +163,7 @@ public class PaperServiceImpl implements PaperService {
             paper.setSecondStatus(PaperStatusEnum.PAPER_STATUS_ENUM_VIEWED.getCode());
             if (paper.getFirstStatus()==PaperStatusEnum.PAPER_STATUS_ENUM_VIEWED.getCode()){
                 paper.setStatus(PaperStatusEnum.PAPER_STATUS_ENUM_VIEWED.getCode());
-                paper.setScore((paper.getFirstScore()+from.getScore())/2.0);
+                paper.setScore((paper.getFirstScore()+from.getScore())/2);
             }
         }
         //设置评论

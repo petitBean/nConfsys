@@ -72,6 +72,10 @@ public class ApplicationServiceImpl implements ApplicationService {
         BeanUtils.copyProperties(from,application);
         application.setStatus(ApplicationStatusEnum.APPLICATION_STATUS_NEW.getCode());
         Application re=null;
+        Application applicationFoubded2=applicationRepository.findByUserNameAndConfId(from.getUserName(),from.getConfId());
+        if (applicationFoubded2!=null){
+            throw new ConfException("该用户已经申请!");
+        }
         try {
             re=saveOne(application);
         }catch (Exception e){
@@ -173,6 +177,11 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public List<Application> findListByConfIdAndStatusAndUserNameNotIn(String confId, int status, List<String> userNameList) {
         return applicationRepository.findAllByConfIdAndStatusAndUserNameNotIn(confId,status,userNameList);
+    }
+
+    @Override
+    public List<Application> findAllByConfIdAndStatus(String confId, int status) {
+        return applicationRepository.findAllByConfIdAndStatus(confId,status);
     }
 
 

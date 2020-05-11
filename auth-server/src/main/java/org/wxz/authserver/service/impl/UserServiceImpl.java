@@ -14,6 +14,7 @@ import org.wxz.confsysdomain.nconfsysuser.User;
 import org.wxz.confsysdomain.nconfsysuser.UserRole;
 import org.wxz.nconfsyscommon.enums.RoleNameEnum;
 import org.wxz.nconfsyscommon.enums.UserStatusEnum;
+import org.wxz.nconfsyscommon.exception.ConfException;
 import org.wxz.nconfsyscommon.utils.KeyUtil;
 
 import javax.transaction.Transactional;
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService {
     private RoleServiceImpl roleService;
 
     @Override
-    public User findOneByUserName(String userName){
+    public User findOneByUserName(String userName) throws Exception{
         return userRepository.findByUserName(userName);
     }
 
@@ -42,8 +43,15 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public String getPasswordByUserName(String userName) {
-        User user=findOneByUserName(userName);
+    public String getPasswordByUserName(String userName) throws Exception{
+        User user=null;
+        try{
+            user=findOneByUserName(userName);
+        }
+        catch (Exception e){
+           throw new ConfException("用户名已存在");
+        }
+
         if (user==null){
             return null;
         }
@@ -74,6 +82,10 @@ public class UserServiceImpl implements UserService {
         UserRole userRole=new UserRole();
         userRole.setRoleId(role.getRoleId());
         userRole.setUserId(newUser.getUserId());
+        User old2=userRepository.findByUserName(userFrom.getUserName());
+        if (old2!=null){
+            return null;
+        }
         userRole=userRoleService.saveOne(userRole);
         return userRepository.save(newUser);
     }

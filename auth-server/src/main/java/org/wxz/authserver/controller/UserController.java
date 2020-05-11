@@ -39,7 +39,13 @@ public class UserController {
                            @RequestParam(value = "password",required = true) String password) {
         UserFrom userFrom=new UserFrom(userName,password);
         User user=null;
-        user=userService.findOneByUserName(userName);
+        try {
+            user=userService.findOneByUserName(userName);
+        }catch (Exception e){
+            log.error("用户注册-注册失败： userFrom={}",userFrom);
+            return ConfResponse.fail("用户名已经存在");
+        }
+
         if(user!=null){
             log.error("用户注册-注册失败： userFrom={}",userFrom);
             return ConfResponse.fail("用户名已经存在");

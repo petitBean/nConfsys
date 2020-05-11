@@ -2,11 +2,9 @@ package org.wxz.confserver.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.wxz.confserver.dto.MailCustomDto;
+import org.wxz.confserver.from.NoticeFrom;
 import org.wxz.confserver.service.UserService;
 import org.wxz.confserver.service.impl.IMailServiceImpl;
 import org.wxz.confsysdomain.nconfsysuser.User;
@@ -54,6 +52,16 @@ public class MailController {
             log.error("获取验证码-异常：e={}",e.getMessage()+"\n"+e.getStackTrace());
             return ConfResponse.fail(e.getMessage());
         }
+        return ConfResponse.success();
+    }
+
+    @PostMapping("/sendnotice")
+    public ConfResponse sendNotice(@RequestBody NoticeFrom noticeFrom){
+        if(noticeFrom.getContent()==null){
+            noticeFrom.setContent("content");
+        }
+        log.info("发送邮件："+noticeFrom.getContent()+"range"+noticeFrom.getRange());
+        mailService.sendNotice(noticeFrom.getContent(),noticeFrom.getConfId(),noticeFrom.getRange());
         return ConfResponse.success();
     }
 

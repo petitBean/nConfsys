@@ -11,6 +11,10 @@ import org.springframework.stereotype.Service;
 import org.wxz.confserver.dto.MailCustomDto;
 import org.wxz.confserver.service.IMailService;
 import org.wxz.confsysdomain.common.IdentCode;
+import org.wxz.confsysdomain.nconfsysconf.Application;
+import org.wxz.confsysdomain.nconfsysconf.Conference;
+import org.wxz.confsysdomain.nconfsysuser.User;
+import org.wxz.confsysdomain.relation.ConferenceUer;
 import org.wxz.nconfsyscommon.exception.ConfException;
 import org.wxz.nconfsyscommon.utils.KeyUtil;
 
@@ -37,6 +41,18 @@ public class IMailServiceImpl implements IMailService {
 
     @Autowired
     private IdentCodeServiceImpl identCodeService;
+
+    @Autowired
+    private UserServiceImpl userService;
+
+    @Autowired
+    private ConferenceServiceImpl conferenceService;
+
+    @Autowired
+    private ApplicationServiceImpl applicationService;
+
+    @Autowired
+    private ConferenceUserServiceImpl conferenceUserService;
 
     /**
      * 配置文件中我的qq邮箱
@@ -171,6 +187,66 @@ public class IMailServiceImpl implements IMailService {
             throw new ConfException("发送失败！请重试");
         }
         //邮箱发送
+
+    }
+
+    public void sendNotice(String content,String confId,int range){
+        List<User> userList=null;
+        List<String> usernameList=null;
+        //1全部工作人员
+        if (range==1){
+            List<ConferenceUer> conferenceUerList=conferenceUserService.findAllByConfId(confId);
+            if (conferenceUerList==null){
+                return;
+            }
+           for (ConferenceUer conferenceUer:conferenceUerList){
+               usernameList.add(conferenceUer.getUserName());
+           }
+        }
+        //2全部普通用户
+        else if (range==2){
+            List<Application> applicationList=applicationService.findListByConfId(confId);
+            if (applicationList==null){
+                return;
+            }
+            for (Application application:applicationList){
+                usernameList.add(application.getUserName());
+            }
+        }
+        else {
+            List<ConferenceUer> conferenceUerList=conferenceUserService.findAllByConfId(confId);
+            if (conferenceUerList!=null){
+                for (ConferenceUer conferenceUer:conferenceUerList){
+                    usernameList.add(conferenceUer.getUserName());
+                }
+            }
+
+            List<Application> applicationList=applicationService.findListByConfId(confId);
+            if (applicationList!=null){
+                for (Application application:applicationList){
+                    usernameList.add(application.getUserName());
+                }
+            }
+        }
+        if (usernameList==null){
+            return;
+        }
+        userList=userService.findListByUserNameIn(usernameList);
+        if (userList==null){
+            return;
+        }
+        Conference conference=conferenceService.findOneByConfId(confId);
+        if (conference==null){
+            return;
+        }
+       /* for (User user:userList){
+            if (user.getEmail()!=null){
+
+            }
+            sendSimpleMail(user.getEmail(),"学术会议管理系统"+conference.getConfName()+"通知:",content);
+        }*/
+        sendSimpleMail("841246785@qq.com","学术会议管理系统"+conference.getConfName()+"通知:",content);
+
 
     }
 

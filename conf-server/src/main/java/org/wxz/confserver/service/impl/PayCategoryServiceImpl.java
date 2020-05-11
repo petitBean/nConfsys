@@ -66,7 +66,7 @@ public class PayCategoryServiceImpl implements PayCategoryService {
             payCategory.setCreateTime(new Date());
             if (from.getDates().length==2){
                 payCategory.setStartDate(from.getDates()[0]);
-                payCategory.setEndDate(from.getDates()[2]);
+                payCategory.setEndDate(from.getDates()[1]);
             }
         }
 

@@ -31,6 +31,7 @@ public class PayCategoryController {
     @PostMapping("/create_one")
     public ConfResponse createOne(@RequestBody PayCategoryFrom categoryFrom){
 
+        log.info(categoryFrom.toString());
         if (categoryFrom==null){
             log.error("创建category-参数空");
             return ConfResponse.fail("错误的请求");
@@ -39,8 +40,8 @@ public class PayCategoryController {
         try {
             category=payCategoryService.createOne(categoryFrom);
         }catch (Exception e){
-            log.error("创建paycategory-错误");
-            return ConfResponse.fail("请求错误");
+            log.error("创建paycategory-错误:e={}",e.getCause()+e.getMessage());
+            return ConfResponse.fail("请求错误-");
         }
         log.info("创建category-成功");
         return ConfResponse.success();
