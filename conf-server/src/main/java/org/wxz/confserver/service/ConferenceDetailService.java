@@ -17,6 +17,7 @@ public interface ConferenceDetailService {
 
     ConferenceDetail findOneByDetailId(String detailId);
 
+
     List<ConferenceDetail> findAllByConfDetailIdIn(List<String> idList);
 
     DetailPageVo getConfDetailPageVo(String confId);

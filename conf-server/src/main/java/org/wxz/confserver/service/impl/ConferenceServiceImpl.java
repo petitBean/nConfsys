@@ -9,6 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.wxz.confserver.dto.ConferenceDto;
+import org.wxz.confserver.dto.HomeConfVoDto;
 import org.wxz.confserver.from.CreateConfFrom;
 import org.wxz.confserver.repository.ConferenceRepository;
 import org.wxz.confserver.service.ConferenceService;
@@ -23,6 +25,7 @@ import org.wxz.nconfsyscommon.enums.ApplicationStatusEnum;
 import org.wxz.nconfsyscommon.enums.ConfIsOnLineEnum;
 import org.wxz.nconfsyscommon.enums.ConfStatusEnum;
 import org.wxz.nconfsyscommon.enums.RoleNameEnum;
+import org.wxz.nconfsyscommon.exception.ConfException;
 import org.wxz.nconfsyscommon.utils.DateUtil;
 import org.wxz.nconfsyscommon.utils.KeyUtil;
 
@@ -67,6 +70,7 @@ public class ConferenceServiceImpl implements ConferenceService {
 
     private SoliciteServiceIml soliciteServiceIml;
 
+
     @Override
     @Transactional(rollbackOn = Exception.class)
     public Conference saveOne(Conference conference)  throws Exception{
@@ -94,62 +98,71 @@ public class ConferenceServiceImpl implements ConferenceService {
      */
     @Override
     @Transactional(rollbackOn = Exception.class)
-    public Conference createConf(CreateConfFrom createConfFrom)  {
-        Conference conference=new Conference();
-        if (createConfFrom==null){
-            log.info("创建会议-失败-参数为空-from={}",createConfFrom);
-            return null;
-        }
-        BeanUtils.copyProperties(createConfFrom,conference);
-        //设置id
-        conference.setConfId(KeyUtil.getUniqueKey());
-        //状态
-        conference.setStatus(ConfStatusEnum.NEW_CONF_STATUS.getCode());
-
-        //riqi
-        if (createConfFrom.getDates().length==2){
-            conference.setStartTime(createConfFrom.getDates()[0]);
-            conference.setEndTime(createConfFrom.getDates()[1]);
-        }
-        //是否支持在线
-        if (createConfFrom.getIsOnline().equals(ConfIsOnLineEnum.IS_ONLINE.getMessage())){
-            conference.setIsOnline(ConfIsOnLineEnum.IS_ONLINE.getCode());
-        }
-        else {
-            conference.setIsOnline(ConfIsOnLineEnum.NO_ONLINE.getCode());
-        }
-        //标签关系设置
-        List<Tag> tagList= tagService.findAllTagNameIn(Arrays.asList(createConfFrom.getTags()));
-        List<ConferenceTag> conferenceTagList=new ArrayList<>(tagList.size());
-        if (tagList!=null){
-            Iterator<Tag> iterator=tagList.iterator();
-            while (iterator.hasNext()){
-                ConferenceTag conferenceTag=new ConferenceTag();
-                conferenceTag.setTagId(iterator.next().getTagId());
-                conferenceTag.setConferenceTagId(KeyUtil.getUniqueKey());
-                conferenceTag.setConfId(conference.getConfId());
-                conferenceTagList.add(conferenceTag);
-            }
-        }
-        //
-        // 创建会议-用户关系存储
-        ConferenceUer conferenceUer=new ConferenceUer();
-        conferenceUer.setConferenceUserId(KeyUtil.getUniqueKey());
-        conferenceUer.setRoleName(RoleNameEnum.ROLE_SECRETARY.getRoleName());
-        conferenceUer.setConfId(conference.getConfId());
-        conferenceUer.setUserName(createConfFrom.getUserName());
-        //保存
+    public Conference createConf(CreateConfFrom createConfFrom) throws Exception {
         Conference result=null;
-        try {
-            conferenceTagService.saveAll(conferenceTagList);
-            result= conferenceRepository.save(conference);
-            conferenceUserService.saveOne(conferenceUer);
-       }
-       catch (Exception e){
-            log.info("创建会议-失败-保存失败：conf={},conUser={},e={}",conference,conferenceUer,e.getStackTrace());
+        synchronized (createConfFrom.getConfName()){
+            Conference conference1=findOneByConfName(createConfFrom.getConfName());
+            if (conference1!=null){
+                log.info("创建会议-失败-重复-from={}",createConfFrom);
+                throw new ConfException("会议以存在");
+            }
+            Conference conference=new Conference();
+            if (createConfFrom==null){
+                log.info("创建会议-失败-参数为空-from={}",createConfFrom);
+                return null;
+            }
+            BeanUtils.copyProperties(createConfFrom,conference);
+            //设置id
+            conference.setConfId(KeyUtil.getUniqueKey());
+            //状态
+            conference.setStatus(ConfStatusEnum.NEW_CONF_STATUS.getCode());
+
+            //riqi
+            if (createConfFrom.getDates().length==2){
+                conference.setStartTime(createConfFrom.getDates()[0]);
+                conference.setEndTime(createConfFrom.getDates()[1]);
+            }
+            //是否支持在线
+            if (createConfFrom.getIsOnline().equals(ConfIsOnLineEnum.IS_ONLINE.getMessage())){
+                conference.setIsOnline(ConfIsOnLineEnum.IS_ONLINE.getCode());
+            }
+            else {
+                conference.setIsOnline(ConfIsOnLineEnum.IS_ONLINE.getCode());
+            }
+            //标签关系设置
+            List<Tag> tagList= tagService.findAllTagNameIn(Arrays.asList(createConfFrom.getTags()));
+            List<ConferenceTag> conferenceTagList=new ArrayList<>(tagList.size());
+            if (tagList!=null){
+                Iterator<Tag> iterator=tagList.iterator();
+                while (iterator.hasNext()){
+                    ConferenceTag conferenceTag=new ConferenceTag();
+                    conferenceTag.setTagId(iterator.next().getTagId());
+                    conferenceTag.setConferenceTagId(KeyUtil.getUniqueKey());
+                    conferenceTag.setConfId(conference.getConfId());
+                    conferenceTagList.add(conferenceTag);
+                }
+            }
+            //
+            // 创建会议-用户关系存储
+            ConferenceUer conferenceUer=new ConferenceUer();
+            conferenceUer.setConferenceUserId(KeyUtil.getUniqueKey());
+            conferenceUer.setRoleName(RoleNameEnum.ROLE_SECRETARY.getRoleName());
+            conferenceUer.setConfId(conference.getConfId());
+            conferenceUer.setUserName(createConfFrom.getUserName());
+            //保存
+
+            try {
+                conferenceTagService.saveAll(conferenceTagList);
+                result= conferenceRepository.save(conference);
+                conferenceUserService.saveOne(conferenceUer);
+            }
+            catch (Exception e){
+                log.info("创建会议-失败-保存失败：conf={},conUser={},e={}",conference,conferenceUer,e.getStackTrace());
             /*System.out.println(e.getCause());
            System.out.println(e.getStackTrace());*/
+            }
         }
+
         return result;
     }
 
@@ -305,6 +318,8 @@ public class ConferenceServiceImpl implements ConferenceService {
         return voList;
     }
 
+
+
     public List<ApplyJoinConfTableVo> getApplyJoinConfTableByApListAndStatus(List<Application> applicationList,int status)  {
         List<String> confIdList=new LinkedList<>();
         if (applicationList==null){
@@ -397,6 +412,7 @@ public class ConferenceServiceImpl implements ConferenceService {
             else {
                 conferenceList.add(conference);
             }
+
         }
         catch (Exception e){
             log.error("会议查找-失败：key={},e={}",key,e.getStackTrace());
@@ -415,7 +431,6 @@ public class ConferenceServiceImpl implements ConferenceService {
         }
         return voList;
     }
-
 
 
     /**
@@ -586,5 +601,81 @@ public class ConferenceServiceImpl implements ConferenceService {
         return confVoList;
     }
 
+    /**
+     * c
+     * @param page
+     * @param pageSize
+     * @param confIdList
+     * @return
+     */
+    public ConferenceDto findOnePageByStartDateSortAndIdIn(int page,int pageSize,List<String> confIdList){
+        if (confIdList.isEmpty()){
+            return null;
+        }
+        Sort.Order order=new Sort.Order(Sort.Direction.ASC,"startTime");
+        List<Sort.Order> orderList= Collections.singletonList(order);
+        Sort sort=Sort.by(orderList);
+        Pageable pageable= PageRequest.of(page,pageSize,sort);
+        List<Integer> statusList=Arrays.asList(ConfStatusEnum.NEW_CONF_STATUS.getCode(),ConfStatusEnum.COMPLETED_DETAIL_STATUS.getCode(),ConfStatusEnum.PAYING_CONF_STATUS.getCode(),ConfStatusEnum.PAPER_COLLECTINT_STATUS.getCode());
+        List<Conference> conferenceList=conferenceRepository.findAllByConfIdInAndStatusIn(confIdList,statusList,pageable);
+        int totall=conferenceRepository.countAllByConfIdInAndStatusIn(confIdList,statusList);
+        ConferenceDto conferenceDto=new ConferenceDto();
+        conferenceDto.setConferenceList(conferenceList);
+        conferenceDto.setCount(totall);
+        return conferenceDto;
+    }
+
+    /**
+     * 通过标签列表查询
+     * @param page
+     * @param pageSize
+     * @param tagNameList
+     * @return
+     */
+    public ConferenceDto findOnePageByTagNameList(int page,int pageSize,List<String> tagNameList){
+        if (tagNameList==null||tagNameList.isEmpty()){
+            log.error("标签为空");
+            return null;
+        }
+        List<Tag> tagList=tagService.findAllTagNameIn(tagNameList);
+        if (tagList==null){
+            log.error("标签结果为空");
+            return null;
+        }
+        List<String> tagIdList=new LinkedList<>();
+        for (Tag tag:tagList){
+            tagIdList.add(tag.getTagId());
+        }
+        List<ConferenceTag> conferenceTagList=conferenceTagService.findAllByTagIdIn(tagIdList);
+        if (conferenceTagList==null||conferenceTagList.isEmpty()){
+            log.error("标签关系结果为空");
+            return null;
+        }
+        Set<String> confIdSet=new HashSet<>();
+        for (ConferenceTag conferenceTag:conferenceTagList){
+            confIdSet.add(conferenceTag.getConfId());
+        }
+        if (confIdSet.isEmpty()){
+            log.error("confid结果为空");
+            return null;
+        }
+        List<String> confIdList = new LinkedList<>(confIdSet);
+        ConferenceDto conferenceDto=findOnePageByStartDateSortAndIdIn(page,pageSize,confIdList);
+        return conferenceDto;
+
+    }
+
+
+    public HomeConfVoDto findPageByTagNameList(int page,int pageSize,List<String> tagNameList){
+        ConferenceDto conferenceDto=findOnePageByTagNameList(page,pageSize,tagNameList);
+        List<Conference> conferenceList=conferenceDto.getConferenceList();
+        if (conferenceList==null||conferenceList.isEmpty()){
+            return null;
+        }
+        HomeConfVoDto dto=new HomeConfVoDto();
+        dto.setConfVoList(createHomeVoByConfList(conferenceList));
+        dto.setCount(conferenceDto.getCount());
+        return dto;
+   }
 
 }

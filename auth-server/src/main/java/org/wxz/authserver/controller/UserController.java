@@ -55,7 +55,7 @@ public class UserController {
         }
         catch (Exception e){
             log.error("用户注册-系统异常： userFrom={}",userFrom);
-            return ConfResponse.fail();
+            return ConfResponse.fail(e.getMessage());
         }
         log.info("用户注册-成功：username={}",userFrom.getUserName());
         return ConfResponse.success(user);

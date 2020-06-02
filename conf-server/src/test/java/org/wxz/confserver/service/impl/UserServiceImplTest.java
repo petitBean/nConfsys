@@ -3,6 +3,7 @@ package org.wxz.confserver.service.impl;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.wxz.confserver.from.AddManagerFrom;
@@ -104,6 +105,12 @@ class UserServiceImplTest {
         from.setConfId("1589094239668741874");
         userService.addManager(from);
         return;
+    }
+
+    @Test
+    void findpass() throws Exception{
+
+        userService.findPass("xxxx","841246785@qq.com");
     }
 
 }

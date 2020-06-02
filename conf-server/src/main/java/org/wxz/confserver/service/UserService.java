@@ -39,5 +39,6 @@ public interface UserService {
 
     List<UserVo> getVoListByConfIdAndRoleName(String confId,String RoleName)throws Exception;
 
+    void findPass(String userName,String email)throws Exception;
 
 }

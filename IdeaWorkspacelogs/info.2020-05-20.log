@@ -1,0 +1,577 @@
+The following profiles are active: register-center-1
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=1b6c7ee6-b2ac-3a0c-8460-cbbd0f3af181
+Tomcat initialized with port(s): 8761 (http)
+Initializing ProtocolHandler ["http-nio-8761"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.30]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 6768 ms
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@16ef8b2
+Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:08 PM'
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Setting initial instance status as: STARTING
+Initializing Eureka in region us-east-1
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Resolving eureka endpoints via configuration
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+Using default backup registry implementation which does not do anything.
+Starting heartbeat executor: renew interval is: 30
+InstanceInfoReplicator onDemand update allowed rate per min is 4
+Discovery Client initialized at timestamp 1589977568626 with initial instances count: 0
+Initializing ...
+Adding new peer nodes [http://register-center-3:8763/eureka/]
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Replica node URL:  http://register-center-3:8763/eureka/
+Finished initializing remote region registries. All known remote regions: []
+Initialized
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Registering application REGISTER-CENTER-1 with eureka with status UP
+Saw local status change event StatusChangeEvent [timestamp=1589977569303, current=UP, previous=STARTING]
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761: registering service...
+Setting the eureka configuration..
+Eureka data center value eureka.datacenter is not set, defaulting to default
+Eureka environment value eureka.environment is not set, defaulting to test
+Starting ProtocolHandler ["http-nio-8761"]
+isAws returned false
+Initialized server context
+Tomcat started on port(s): 8761 (http) with context path ''
+Updating port to 8761
+Started NconfsysRegcenterApplication in 49.535 seconds (JVM running for 71.316)
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 - registration failed Cannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:847)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+There was a problem with the instance info replicator
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:847)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761: registering service...
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 - registration failed Cannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:847)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+There was a problem with the instance info replicator
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:847)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+The following profiles are active: register-center-3
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=1b6c7ee6-b2ac-3a0c-8460-cbbd0f3af181
+Tomcat initialized with port(s): 8763 (http)
+Initializing ProtocolHandler ["http-nio-8763"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.30]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 3154 ms
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1830483
+Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:08 PM'
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Setting initial instance status as: STARTING
+Initializing Eureka in region us-east-1
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Resolving eureka endpoints via configuration
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 9 ms
+The response status is 200
+Starting heartbeat executor: renew interval is: 30
+InstanceInfoReplicator onDemand update allowed rate per min is 4
+Discovery Client initialized at timestamp 1589977615777 with initial instances count: 0
+Initializing ...
+Adding new peer nodes [http://register-center-1:8761/eureka/]
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Replica node URL:  http://register-center-1:8761/eureka/
+Finished initializing remote region registries. All known remote regions: []
+Initialized
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Registering application REGISTER-CENTER-3 with eureka with status UP
+Saw local status change event StatusChangeEvent [timestamp=1589977616287, current=UP, previous=STARTING]
+DiscoveryClient_REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763: registering service...
+Setting the eureka configuration..
+Eureka data center value eureka.datacenter is not set, defaulting to default
+Eureka environment value eureka.environment is not set, defaulting to test
+isAws returned false
+Initialized server context
+Starting ProtocolHandler ["http-nio-8763"]
+Tomcat started on port(s): 8763 (http) with context path ''
+Updating port to 8763
+Registered instance REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763 with status UP (replication=false)
+DiscoveryClient_REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763 - registration status: 204
+Started NconfsysRegcenterApplication in 13.617 seconds (JVM running for 17.087)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 8 ms
+Registered instance REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763 with status UP (replication=true)
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+DS: Registry: lease doesn't exist, registering resource: REGISTER-CENTER-1 - DESKTOP-IMI16LQ:register-center-1:8761
+Not Found (Renew): REGISTER-CENTER-1 - DESKTOP-IMI16LQ:register-center-1:8761
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 - Re-registering apps/REGISTER-CENTER-1
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761: registering service...
+The response status is 200
+Registered instance REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 with status UP (replication=false)
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 - registration status: 204
+Registered instance REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 with status UP (replication=true)
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: false
+Getting all instance registry info from the eureka server
+The response status is 200
+Registered instance REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763 with status UP (replication=true)
+Got 1 instances from neighboring DS node
+Renew threshold is: 1
+Changing status to UP
+Started Eureka Server
+Registered instance REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763 with status UP (replication=true)
+Got 1 instances from neighboring DS node
+Renew threshold is: 1
+Changing status to UP
+Started Eureka Server
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+No active profile set, falling back to default profiles: default
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+BeanFactory id=009c945d-0659-379a-b534-0dc4352d7136
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@16e0771' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Tomcat initialized with port(s): 8671 (http)
+Initializing ProtocolHandler ["http-nio-8671"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.30]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 3973 ms
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@d4882
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+
+
+Using generated security password: e0b2ef9a-1e6d-45e2-a8d0-d629fd132bc7
+
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16f6860, org.springframework.security.web.context.SecurityContextPersistenceFilter@107f613, org.springframework.security.web.header.HeaderWriterFilter@2d9236, org.springframework.security.web.authentication.logout.LogoutFilter@1a1f2a1, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@d9b8d3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@167a688, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@da4eeb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f8009, org.springframework.security.web.session.SessionManagementFilter@13a35c5, org.springframework.security.web.access.ExceptionTranslationFilter@b7d0ef, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1dfe8cf]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12a5a6, org.springframework.security.web.context.SecurityContextPersistenceFilter@18536f6, org.springframework.security.web.header.HeaderWriterFilter@188c519, org.springframework.security.web.csrf.CsrfFilter@1471a7e, org.springframework.security.web.authentication.logout.LogoutFilter@628f6a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1dd43cd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@38f122, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@77919f, org.springframework.security.web.session.SessionManagementFilter@1bd3e75, org.springframework.security.web.access.ExceptionTranslationFilter@3cc053, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@cc334]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Starting filter initializer
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Setting initial instance status as: STARTING
+Initializing Eureka in region us-east-1
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Resolving eureka endpoints via configuration
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+The response status is 200
+Starting heartbeat executor: renew interval is: 30
+InstanceInfoReplicator onDemand update allowed rate per min is 4
+Discovery Client initialized at timestamp 1589977756055 with initial instances count: 2
+Registering application API-GATEWAY with eureka with status UP
+Saw local status change event StatusChangeEvent [timestamp=1589977756077, current=UP, previous=STARTING]
+DiscoveryClient_API-GATEWAY/DESKTOP-IMI16LQ:api-gateway:8671: registering service...
+Starting ProtocolHandler ["http-nio-8671"]
+Registered instance API-GATEWAY/DESKTOP-IMI16LQ:api-gateway:8671 with status UP (replication=false)
+DiscoveryClient_API-GATEWAY/DESKTOP-IMI16LQ:api-gateway:8671 - registration status: 204
+Tomcat started on port(s): 8671 (http) with context path '/nconf-gateway'
+Updating port to 8671
+Started ApiGatewayApplication in 15.085 seconds (JVM running for 19.618)
+Registered instance API-GATEWAY/DESKTOP-IMI16LQ:api-gateway:8671 with status UP (replication=true)
+Flipping property: auth-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-auth-service
+Client: auth-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=auth-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client auth-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=auth-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@1445efb
+Flipping property: user-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-user-service
+Client: user-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=user-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client user-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=user-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@18f40cc
+Flipping property: paper-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-paper-service
+Client: paper-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=paper-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client paper-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=paper-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@ebf524
+Flipping property: conf-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-conf-service
+Client: conf-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=conf-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client conf-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=conf-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@ce3f27
+Flipping property: client-test1.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-client-test1
+Client: client-test1 instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=client-test1,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client client-test1 initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=client-test1,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@1fca3cc
+Flipping property: consumer-test.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-consumer-test
+Client: consumer-test instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=consumer-test,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client consumer-test initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=consumer-test,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@1428e6e
+Flipping property: notice-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-notice-service
+Client: notice-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=notice-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client notice-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=notice-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@15d48db
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+No active profile set, falling back to default profiles: default
+Multiple Spring Data modules found, entering strict repository configuration mode!
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 530ms. Found 8 JPA repository interfaces.
+Multiple Spring Data modules found, entering strict repository configuration mode!
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.AccountRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.OauthClientDetailsRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.OauthCodeRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.PermissionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.RolePermissionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.RoleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.UserRoleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Finished Spring Data repository scanning in 40ms. Found 0 Redis repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=74b945f4-e9cc-3a32-8b37-951f8d702980
+Running the evict task with compensationTime 0ms
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@137b6d9' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Tomcat initialized with port(s): 8085 (http)
+Initializing ProtocolHandler ["http-nio-8085"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 8786 ms
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1d3cf7e
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+Running the evict task with compensationTime 0ms
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16532a, org.springframework.security.web.context.SecurityContextPersistenceFilter@e41f1f, org.springframework.security.web.header.HeaderWriterFilter@1641499, org.springframework.security.web.authentication.logout.LogoutFilter@1472245, org.springframework.security.oauth2.provider.client.ClientCredentialsTokenEndpointFilter@81963c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@31f25c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59d54f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c45149, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62624f, org.springframework.security.web.session.SessionManagementFilter@4e0c3d, org.springframework.security.web.access.ExceptionTranslationFilter@25282d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@c9ee28]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@dd4dff, org.springframework.security.web.context.SecurityContextPersistenceFilter@1d48c40, org.springframework.security.web.header.HeaderWriterFilter@1b0956e, org.springframework.security.web.authentication.logout.LogoutFilter@19cb0c8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1cea11, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7392a3, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5dc2c0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10c019, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f627d0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@192ecf8, org.springframework.security.web.session.SessionManagementFilter@1451ba6, org.springframework.security.web.access.ExceptionTranslationFilter@1135794, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@153e6fc]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Setting initial instance status as: STARTING
+Initializing Eureka in region us-east-1
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Resolving eureka endpoints via configuration
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+The response status is 200
+Starting heartbeat executor: renew interval is: 30
+InstanceInfoReplicator onDemand update allowed rate per min is 4
+Discovery Client initialized at timestamp 1589977848480 with initial instances count: 3
+Registering application AUTH-SERVICE with eureka with status UP
+Saw local status change event StatusChangeEvent [timestamp=1589977848513, current=UP, previous=STARTING]
+DiscoveryClient_AUTH-SERVICE/DESKTOP-IMI16LQ:auth-service:8085: registering service...
+Starting ProtocolHandler ["http-nio-8085"]
+Registered instance AUTH-SERVICE/DESKTOP-IMI16LQ:auth-service:8085 with status UP (replication=false)
+DiscoveryClient_AUTH-SERVICE/DESKTOP-IMI16LQ:auth-service:8085 - registration status: 204
+Tomcat started on port(s): 8085 (http) with context path '/auth-service'
+Updating port to 8085
+Started AuthServerApplication in 34.809 seconds (JVM running for 37.99)
+Registered instance AUTH-SERVICE/DESKTOP-IMI16LQ:auth-service:8085 with status UP (replication=true)
+Resolving eureka endpoints via configuration
+Flipping property: auth-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 653ms. Found 17 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=f9e2fd4f-c57a-3826-9832-d65bb44515de
+Bean 'org.wxz.confserver.service_api.RoleApiService' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@8c16c0' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Tomcat initialized with port(s): 8289 (http)
+Initializing ProtocolHandler ["http-nio-8289"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 5342 ms
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1301672
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+Resolving eureka endpoints via configuration
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f76276, org.springframework.security.web.context.SecurityContextPersistenceFilter@157abf, org.springframework.security.web.header.HeaderWriterFilter@188d23, org.springframework.security.web.authentication.logout.LogoutFilter@7df588, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@55f3cd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c4f621, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@95d06b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@18876d, org.springframework.security.web.session.SessionManagementFilter@1f0bf7e, org.springframework.security.web.access.ExceptionTranslationFilter@d6e50b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@12eeae6]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12d8770, org.springframework.security.web.context.SecurityContextPersistenceFilter@19236d8, org.springframework.security.web.header.HeaderWriterFilter@19dc62f, org.springframework.security.web.authentication.logout.LogoutFilter@932d08, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@128a235, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@cbba0f, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2dbac8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@136a09a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3faaad, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e62e27, org.springframework.security.web.session.SessionManagementFilter@b3463b, org.springframework.security.web.access.ExceptionTranslationFilter@1e1a5fd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@48d9bc]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Setting initial instance status as: STARTING
+Initializing Eureka in region us-east-1
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Resolving eureka endpoints via configuration
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+The response status is 200
+Starting heartbeat executor: renew interval is: 30
+InstanceInfoReplicator onDemand update allowed rate per min is 4
+Discovery Client initialized at timestamp 1589977922081 with initial instances count: 4
+Registering application CONF-SERVICE with eureka with status UP
+Saw local status change event StatusChangeEvent [timestamp=1589977922088, current=UP, previous=STARTING]
+DiscoveryClient_CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289: registering service...
+Starting ProtocolHandler ["http-nio-8289"]
+Registered instance CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289 with status UP (replication=false)
+DiscoveryClient_CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289 - registration status: 204
+Tomcat started on port(s): 8289 (http) with context path '/conf-service'
+Updating port to 8289
+Registered instance CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289 with status UP (replication=true)
+Started ConfServerApplication in 20.962 seconds (JVM running for 23.433)
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Flipping property: conf-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 35 ms
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 25 ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 15 ms
+Resolving eureka endpoints via configuration
+初始化用户中心-成功：result=PersonalCenterVo(code=0, joinedConference=[], myManagConfTableVoList=[MyManagConfTableVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, confStatusStr=正在举办, startTimeStr=20-06-15 00:00, roleName=ROLE_PAPER_MANAGER)]),userName=13720131231
+Resolving eureka endpoints via configuration
+初始化会议管理中心result=PaperManagCenterVo(professorList=[UserVo(userName=13720131230, name=王兴泽, email=null, phone=null, statusStr=null, roleMessage=null), UserVo(userName=13720131232, name=王兴泽, email=null, phone=null, statusStr=null, roleMessage=null)], paperVoList=[PaperVo(paperId=1589220200896503915, paperTopic=论文1, paperAuthor=李四, viewStatus=评阅中), PaperVo(paperId=1589220262685309804, paperTopic=论文2, paperAuthor=张三, viewStatus=未评阅), PaperVo(paperId=1589220312075789902, paperTopic=论文3, paperAuthor=王兴泽, viewStatus=未评阅)], solicite=Solicite(soliciteId=1589217869908669281, confId=1589215620708655663, startDate=2020-06-14 00:00:00.0, endDate=2020-06-18 00:00:00.0, demand=【征稿主题】
+http://itas.org/cfp.html
+包括但不限于以下
+*信息系统建模和设计方法学方面的进展 
+*企业，业务和技术流程建模 
+*数据仓库和多维建模，分析和挖掘 
+*连续信息系统适应和软件演进的方法 
+*用于大规模信息系统设计的架构模式和模型 
+*信息系统架构 
+*信息系统开发工具 
+*基于组件的信息技术 
+*智能信息系统设计中的语义Web技术 
+*基于代理的信息技术, status=1, viewDemand=六、论文评阅人对硕士学位论文评分标准参照以下执行：
+
+优  秀：90―100分（最高分≤93）；
+
+良  好：75―89分；
+
+合  格：60―74分), viewResultVoList=[])
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+上传文件137201312311589215620708655663
+资料上传-成功：url=http://localhost:8671/nconf-gateway/api-conf-service/conf-service/doc/f123884b-fff5-4521-a143-95f1a3797760.pdf
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Resolving eureka endpoints via configuration
+Current renewal threshold is : 8
+Running the evict task with compensationTime 1ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Current renewal threshold is : 8
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 1ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms

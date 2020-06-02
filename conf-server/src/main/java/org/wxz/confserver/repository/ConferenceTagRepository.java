@@ -13,5 +13,6 @@ import java.util.List;
 @Repository
 public interface ConferenceTagRepository extends JpaRepository<ConferenceTag,String> {
 
+    List<ConferenceTag> findAllByTagIdIn(List<String> tagIdList);
 
 }

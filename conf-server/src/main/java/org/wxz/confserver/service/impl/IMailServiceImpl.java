@@ -79,7 +79,12 @@ public class IMailServiceImpl implements IMailService {
         //邮件内容
         message.setText(content);
         //发送邮件
-        mailSender.send(message);
+        try {
+            mailSender.send(message);
+        }catch (Exception e){
+            log.error("发送邮件-失败：email={}",to);
+        }
+
     }
 
     /**

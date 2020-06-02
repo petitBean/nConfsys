@@ -56,6 +56,10 @@ public interface ConferenceService {
 
      List<ManagerVo> getManagerVo(String confId)throws Exception;
 
+/*
+    int countAllByConfIdInAndStatusIn(List<String> confIdList,List<Integer> statusList);
+*/
+
 
 
 }

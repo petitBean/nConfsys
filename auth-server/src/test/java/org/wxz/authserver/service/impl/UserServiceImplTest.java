@@ -33,7 +33,7 @@ class UserServiceImplTest {
 
     @Test
     void userRegister() throws Exception {
-        UserFrom userFrom=new UserFrom("xxx","123456");
+        UserFrom userFrom=new UserFrom("xxxx","123456");
         User user= userService.userRegister(userFrom);
        return;
     }

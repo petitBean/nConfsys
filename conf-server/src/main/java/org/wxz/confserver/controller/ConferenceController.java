@@ -4,6 +4,7 @@ import jdk.nashorn.internal.objects.annotations.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.wxz.confserver.dto.HomeConfVoDto;
 import org.wxz.confserver.from.CreateConfFrom;
 import org.wxz.confserver.service.impl.*;
 import org.wxz.confserver.vo.*;
@@ -229,6 +230,27 @@ public class ConferenceController {
         log.info("初始化会议管理中心result={}",paperManagCenterVo);
         return ConfResponse.success(paperManagCenterVo);
 
+    }
+
+    @GetMapping("/find_by_tag")
+    public ConfResponse findPageByTagNameList(@RequestParam(value = "tagNameList",required = true)List<String> tagNameList,
+                                              @RequestParam(value = "page",required = false,defaultValue = "0")int page,
+                                              @RequestParam(value = "pageSize",required = false,defaultValue = "6")int pageSize){
+        if (tagNameList==null||tagNameList.isEmpty()){
+           log.info("标签列表空");
+            return ConfResponse.fail();
+        }
+        if (page<0||pageSize<1){
+            log.info("参数错误");
+            return ConfResponse.fail();
+        }
+        ConfListVo confListVo=new ConfListVo();
+        HomeConfVoDto dto =conferenceService.findPageByTagNameList(page,pageSize,tagNameList);
+        List<HomeConfVo> homeConfVos=dto.getConfVoList();
+        confListVo.setConferenceList(homeConfVos);
+        confListVo.setCountAll(dto.getCount());
+        log.info("用户根据标签查询会议-成功-vo={}",confListVo);
+        return ConfResponse.success(confListVo);
     }
 }
 

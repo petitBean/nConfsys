@@ -35,5 +35,7 @@ public interface ConferenceRepository extends JpaRepository<Conference,String> {
 
     List<Conference> findAllByConfIdIn(List<String> confIdList);
 
+    List<Conference> findAllByConfIdInAndStatusIn(List<String> confIdList,List<Integer> statusList,Pageable pageable);
 
+    int countAllByConfIdInAndStatusIn(List<String> confIdList,List<Integer> statusList);
 }

@@ -28,6 +28,14 @@ public class ConferenceTagServiceImpl implements ConferenceTagService {
     }
 
     @Override
+    public List<ConferenceTag> findAllByTagIdIn(List<String> tagIdList) {
+        if (tagIdList==null){
+            return null;
+        }
+        return conferenceTagRepository.findAllByTagIdIn(tagIdList);
+    }
+
+    @Override
     @Transactional(rollbackOn = Exception.class)
     public List<ConferenceTag> saveAll(List<ConferenceTag> conferenceTagList) throws Exception {
         return conferenceTagRepository.saveAll(conferenceTagList);

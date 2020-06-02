@@ -69,7 +69,7 @@ public class UersController {
         try {
             userService.addManager(addManagerForm);
         }catch (Exception e){
-            log.error("添加会议管理工作人员-失败：e={}",e.getStackTrace());
+            log.error("添加会议管理工作人员-失败：e={}",e.getStackTrace().toString());
             return ConfResponse.fail(e.getMessage());
         }
         log.error("添加会议管理工作人员-成功");
@@ -92,6 +92,29 @@ public class UersController {
             return ConfResponse.fail("系统异常！");
         }
         return ConfResponse.success(voList);
+    }
+
+    /**
+     * 用户找回密码
+     * @param userName
+     * @param email
+     * @return
+     */
+    @PostMapping("/findpassword")
+    public ConfResponse findPass(@RequestParam(value = "userName",required = true)String userName,
+                                 @RequestParam(value = "email",required = true)String email){
+        if (userName==null||email==null){
+            log.error("用户找回密码-参数错误：userName={},email={}",userName,email);
+            return ConfResponse.fail("错误的请求！");
+        }
+        try {
+          userService.findPass(userName,email);
+        }catch (Exception e){
+            log.error("用户找回密码失败-异常：e={}",e.getMessage());
+            return ConfResponse.fail(e.getMessage());
+        }
+        log.info("用户找回密码-成功");
+        return ConfResponse.success();
     }
 
 

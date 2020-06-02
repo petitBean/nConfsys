@@ -28,4 +28,10 @@ public class KeyUtil {
         Integer code=random.nextInt(99999)+100000;
         return String.valueOf(code);
     }
+
+    public static synchronized String getStr_6(){
+        Random random=new Random();
+        Integer str=random.nextInt(9000000)+1000000;
+        return String.valueOf(str);
+    }
 }

@@ -9,6 +9,7 @@ import org.wxz.confserver.vo.*;
 import org.wxz.confsysdomain.nconfsysconf.Conference;
 import org.wxz.confsysdomain.paper.Solicite;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,6 +57,13 @@ class ConferenceServiceImplTest {
         List<Conference> conferences2=conferenceService.findAllKeywordsLike("酷酷酷酷酷酷酷");
         List<Conference> conferences3=conferenceService.findAllConfTopicLike("酷酷酷酷酷酷酷");
        return;
+    }
+
+    @Test
+    void findOnePageByTagNameList(){
+        List<String> strings= Arrays.asList("计算机科学","生物学");
+        //List<HomeConfVo> conferenceList=  conferenceService.findPageByTagNameList(0,5,strings);
+        return;
     }
 
     @Test

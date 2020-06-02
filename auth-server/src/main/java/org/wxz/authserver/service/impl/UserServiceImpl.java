@@ -1,5 +1,6 @@
 package org.wxz.authserver.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ import org.wxz.nconfsyscommon.utils.KeyUtil;
 import javax.transaction.Transactional;
 import java.util.Date;
 
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -67,27 +69,32 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(rollbackOn = Exception.class)
     public User userRegister(UserFrom userFrom) throws Exception {
-        User old=userRepository.findByUserName(userFrom.getUserName());
-        if (old!=null){
-            return null;
+        if (userFrom.getUserName()==null){
+            log.error("用户注册失败-用户名为空");
+            throw new ConfException("请求错误");
         }
-        User newUser=new User();
-        BeanUtils.copyProperties(userFrom,newUser);
-        newUser.setUserId(KeyUtil.getUniqueKey());
-        newUser.setStatus(UserStatusEnum.NEW_USER_STATUS.getCode());
-        newUser.setPassword(BcryptEncoderUtil.toBcryptString(newUser.getPassword()));
-        newUser.setCreateDate(new Date());
+        User newUser=null;
+        synchronized (userFrom.getUserName()){
+            User old=userRepository.findByUserName(userFrom.getUserName());
+            if (old!=null){
+                log.error("用户注册失败-用户已存在");
+                throw new ConfException("用户已存在");
+            }
+             newUser=new User();
+            BeanUtils.copyProperties(userFrom,newUser);
+            newUser.setUserId(KeyUtil.getUniqueKey());
+            newUser.setStatus(UserStatusEnum.NEW_USER_STATUS.getCode());
+            newUser.setPassword(BcryptEncoderUtil.toBcryptString(newUser.getPassword()));
+            newUser.setCreateDate(new Date());
 
-        Role role=roleService.findByRoleName(RoleNameEnum.ROLE_USER.getRoleName());
-        UserRole userRole=new UserRole();
-        userRole.setRoleId(role.getRoleId());
-        userRole.setUserId(newUser.getUserId());
-        User old2=userRepository.findByUserName(userFrom.getUserName());
-        if (old2!=null){
-            return null;
+            Role role=roleService.findByRoleName(RoleNameEnum.ROLE_USER.getRoleName());
+            UserRole userRole=new UserRole();
+            userRole.setRoleId(role.getRoleId());
+            userRole.setUserId(newUser.getUserId());
+            userRole=userRoleService.saveOne(userRole);
+            newUser= userRepository.save(newUser);
         }
-        userRole=userRoleService.saveOne(userRole);
-        return userRepository.save(newUser);
+        return newUser;
     }
 
 }

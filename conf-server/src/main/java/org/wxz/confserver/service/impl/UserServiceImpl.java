@@ -55,6 +55,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private ApplicationServiceImpl applicationService;
 
+    @Autowired
+    private IMailServiceImpl iMailService;
+
 
     @Override
     public User findByUserName(String userName) {
@@ -64,7 +67,10 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(rollbackOn = Exception.class)
     public User saveOne(User user) throws Exception {
-        User result=null;
+        User result=findByUserName(user.getUserName());
+        if (result!=null){
+            throw new ConfException("用户已经存在");
+        }
         try {
            result= userRepository.save(user);
         }
@@ -327,6 +333,38 @@ public class UserServiceImpl implements UserService {
             userVoList.add(vo);
         }
         return userVoList;
+    }
+
+    @Override
+    public void findPass(String userName, String email) throws Exception {
+        //查询用户
+        if (userName==null||email==null){
+            log.error("用户找回密码-失败-参数错误：username={}，email={}",userName,email);
+            throw new ConfException("错误的请求！");
+        }
+        User user=findByUserName(userName);
+        if (user==null){
+            log.error("用户找回密码-失败-用户信息不存在：userName={}",userName);
+            throw new ConfException("错误的请求！");
+        }
+        if (user.getEmail()==null||!user.getEmail().equals(email)){
+            log.error("用户找回密码-失败-邮箱错误：userName={},email={}",userName,email);
+            throw new ConfException("错误的请求！");
+        }
+        //生成密码
+        String passStr=KeyUtil.getStr_6();
+        log.info(passStr);
+        //设置密码
+        //发送邮件
+        iMailService.sendSimpleMail(email,"学术会议管理系统-找回密码","请使用密码"+passStr+"登录修改密码！");
+        //保存
+        user.setPassword(BcryptEncoderUtil.toBcryptString(passStr));
+        try {
+            saveOne(user);
+        }catch (Exception e){
+            log.error("用户找回密码失败-信息存储失败-");
+        }
+
     }
 
     /**

@@ -15,5 +15,10 @@ public interface TagRepository  extends JpaRepository<Tag,String> {
 
     List<Tag> findAllByTagNameIn(List<String> nameList);
 
+    boolean deleteAllByTagNameIn(List<String> tagNameList);
+
+    boolean deleteByTagName(String tagName);
+
+
 }
 
