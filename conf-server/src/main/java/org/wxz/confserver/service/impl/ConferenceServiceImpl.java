@@ -668,6 +668,9 @@ public class ConferenceServiceImpl implements ConferenceService {
 
     public HomeConfVoDto findPageByTagNameList(int page,int pageSize,List<String> tagNameList){
         ConferenceDto conferenceDto=findOnePageByTagNameList(page,pageSize,tagNameList);
+        if(conferenceDto==null){
+            return null;
+        }
         List<Conference> conferenceList=conferenceDto.getConferenceList();
         if (conferenceList==null||conferenceList.isEmpty()){
             return null;

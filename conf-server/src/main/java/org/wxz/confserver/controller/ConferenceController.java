@@ -75,6 +75,7 @@ public class ConferenceController {
              log.info("获取首页数据-失败-null: vo={},date={}", vo, new Date());
              return ConfResponse.fail("获取数据失败");
          }
+         log.info("cg-vo={}",vo);
          return ConfResponse.success(vo);
     }
 

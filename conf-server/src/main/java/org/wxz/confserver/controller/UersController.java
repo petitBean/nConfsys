@@ -103,6 +103,7 @@ public class UersController {
     @PostMapping("/findpassword")
     public ConfResponse findPass(@RequestParam(value = "userName",required = true)String userName,
                                  @RequestParam(value = "email",required = true)String email){
+        log.info(userName+email);
         if (userName==null||email==null){
             log.error("用户找回密码-参数错误：userName={},email={}",userName,email);
             return ConfResponse.fail("错误的请求！");

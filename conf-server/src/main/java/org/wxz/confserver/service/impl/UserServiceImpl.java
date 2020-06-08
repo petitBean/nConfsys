@@ -67,17 +67,12 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(rollbackOn = Exception.class)
     public User saveOne(User user) throws Exception {
-        User result=findByUserName(user.getUserName());
-        if (result!=null){
-            throw new ConfException("用户已经存在");
-        }
         try {
-           result= userRepository.save(user);
+            return userRepository.save(user);
         }
         catch (Exception e){
             throw new ConfException("用户存储失败！");
         }
-        return result;
     }
 
     @Override
@@ -345,11 +340,11 @@ public class UserServiceImpl implements UserService {
         User user=findByUserName(userName);
         if (user==null){
             log.error("用户找回密码-失败-用户信息不存在：userName={}",userName);
-            throw new ConfException("错误的请求！");
+            throw new ConfException("用户名错误！");
         }
         if (user.getEmail()==null||!user.getEmail().equals(email)){
             log.error("用户找回密码-失败-邮箱错误：userName={},email={}",userName,email);
-            throw new ConfException("错误的请求！");
+            throw new ConfException("未绑定邮箱！");
         }
         //生成密码
         String passStr=KeyUtil.getStr_6();
@@ -362,6 +357,7 @@ public class UserServiceImpl implements UserService {
         try {
             saveOne(user);
         }catch (Exception e){
+            log.info(e.getMessage()+e.getCause()+e.getStackTrace());
             log.error("用户找回密码失败-信息存储失败-");
         }
 

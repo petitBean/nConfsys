@@ -1,0 +1,1289 @@
+The following profiles are active: register-center-1
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=1b6c7ee6-b2ac-3a0c-8460-cbbd0f3af181
+Tomcat initialized with port(s): 8761 (http)
+Initializing ProtocolHandler ["http-nio-8761"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.30]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 13441 ms
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@13165e7
+Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:08 PM'
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Setting initial instance status as: STARTING
+Initializing Eureka in region us-east-1
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Resolving eureka endpoints via configuration
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+Using default backup registry implementation which does not do anything.
+Starting heartbeat executor: renew interval is: 30
+InstanceInfoReplicator onDemand update allowed rate per min is 4
+Discovery Client initialized at timestamp 1591628595578 with initial instances count: 0
+Initializing ...
+Adding new peer nodes [http://register-center-3:8763/eureka/]
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Replica node URL:  http://register-center-3:8763/eureka/
+Finished initializing remote region registries. All known remote regions: []
+Initialized
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Registering application REGISTER-CENTER-1 with eureka with status UP
+Saw local status change event StatusChangeEvent [timestamp=1591628596237, current=UP, previous=STARTING]
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761: registering service...
+Setting the eureka configuration..
+Eureka data center value eureka.datacenter is not set, defaulting to default
+Eureka environment value eureka.environment is not set, defaulting to test
+Starting ProtocolHandler ["http-nio-8761"]
+isAws returned false
+Initialized server context
+Tomcat started on port(s): 8761 (http) with context path ''
+Updating port to 8761
+Started NconfsysRegcenterApplication in 52.169 seconds (JVM running for 88.091)
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 - registration failed Cannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:847)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+There was a problem with the instance info replicator
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:847)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761: registering service...
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 - registration failed Cannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:847)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+There was a problem with the instance info replicator
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:847)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+The following profiles are active: register-center-3
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=1b6c7ee6-b2ac-3a0c-8460-cbbd0f3af181
+Tomcat initialized with port(s): 8763 (http)
+Initializing ProtocolHandler ["http-nio-8763"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.30]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 5500 ms
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@a4d8cc
+Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:08 PM'
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Setting initial instance status as: STARTING
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+Initializing Eureka in region us-east-1
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761: registering service...
+Resolving eureka endpoints via configuration
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+Request execution failed with message: java.net.ConnectException: Connection refused: connect
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 - registration failed Cannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:847)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+There was a problem with the instance info replicator
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:847)
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 9 ms
+The response status is 200
+Starting heartbeat executor: renew interval is: 30
+InstanceInfoReplicator onDemand update allowed rate per min is 4
+Discovery Client initialized at timestamp 1591628660067 with initial instances count: 0
+Initializing ...
+Adding new peer nodes [http://register-center-1:8761/eureka/]
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Replica node URL:  http://register-center-1:8761/eureka/
+Finished initializing remote region registries. All known remote regions: []
+Initialized
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Registering application REGISTER-CENTER-3 with eureka with status UP
+Saw local status change event StatusChangeEvent [timestamp=1591628660637, current=UP, previous=STARTING]
+DiscoveryClient_REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763: registering service...
+Setting the eureka configuration..
+Eureka data center value eureka.datacenter is not set, defaulting to default
+Eureka environment value eureka.environment is not set, defaulting to test
+Starting ProtocolHandler ["http-nio-8763"]
+isAws returned false
+Initialized server context
+Tomcat started on port(s): 8763 (http) with context path ''
+Updating port to 8763
+Registered instance REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763 with status UP (replication=false)
+DiscoveryClient_REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763 - registration status: 204
+Started NconfsysRegcenterApplication in 21.726 seconds (JVM running for 27.429)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 9 ms
+Registered instance REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763 with status UP (replication=true)
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+DS: Registry: lease doesn't exist, registering resource: REGISTER-CENTER-1 - DESKTOP-IMI16LQ:register-center-1:8761
+Not Found (Renew): REGISTER-CENTER-1 - DESKTOP-IMI16LQ:register-center-1:8761
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 - Re-registering apps/REGISTER-CENTER-1
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761: registering service...
+Registered instance REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 with status UP (replication=false)
+DiscoveryClient_REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 - registration status: 204
+The response status is 200
+Registered instance REGISTER-CENTER-1/DESKTOP-IMI16LQ:register-center-1:8761 with status UP (replication=true)
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: false
+Getting all instance registry info from the eureka server
+The response status is 200
+Registered instance REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763 with status UP (replication=true)
+Got 1 instances from neighboring DS node
+Renew threshold is: 1
+Changing status to UP
+Started Eureka Server
+Registered instance REGISTER-CENTER-3/DESKTOP-IMI16LQ:register-center-3:8763 with status UP (replication=true)
+Got 1 instances from neighboring DS node
+Renew threshold is: 1
+Changing status to UP
+Started Eureka Server
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+No active profile set, falling back to default profiles: default
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+BeanFactory id=009c945d-0659-379a-b534-0dc4352d7136
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@8cbcde' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Tomcat initialized with port(s): 8671 (http)
+Initializing ProtocolHandler ["http-nio-8671"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.30]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 5570 ms
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1baddde
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+
+
+Using generated security password: b2119f8c-f4e5-4163-9c18-858f872b378d
+
+Running the evict task with compensationTime 1ms
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5253d8, org.springframework.security.web.context.SecurityContextPersistenceFilter@15ab2f2, org.springframework.security.web.header.HeaderWriterFilter@1079032, org.springframework.security.web.authentication.logout.LogoutFilter@aeddc8, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@1c5bf0e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12dd3df, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1bddada, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@417468, org.springframework.security.web.session.SessionManagementFilter@61d8c0, org.springframework.security.web.access.ExceptionTranslationFilter@1c767e6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d07cf3]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a4ecbe, org.springframework.security.web.context.SecurityContextPersistenceFilter@16f6860, org.springframework.security.web.header.HeaderWriterFilter@1723307, org.springframework.security.web.csrf.CsrfFilter@8b357d, org.springframework.security.web.authentication.logout.LogoutFilter@3f0aea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4f8009, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@85644c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@71240b, org.springframework.security.web.session.SessionManagementFilter@401856, org.springframework.security.web.access.ExceptionTranslationFilter@f5b246, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b626e5]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Starting filter initializer
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Setting initial instance status as: STARTING
+Initializing Eureka in region us-east-1
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Resolving eureka endpoints via configuration
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+The response status is 200
+Starting heartbeat executor: renew interval is: 30
+InstanceInfoReplicator onDemand update allowed rate per min is 4
+Discovery Client initialized at timestamp 1591628840707 with initial instances count: 2
+Registering application API-GATEWAY with eureka with status UP
+Saw local status change event StatusChangeEvent [timestamp=1591628840718, current=UP, previous=STARTING]
+DiscoveryClient_API-GATEWAY/DESKTOP-IMI16LQ:api-gateway:8671: registering service...
+Starting ProtocolHandler ["http-nio-8671"]
+Registered instance API-GATEWAY/DESKTOP-IMI16LQ:api-gateway:8671 with status UP (replication=false)
+DiscoveryClient_API-GATEWAY/DESKTOP-IMI16LQ:api-gateway:8671 - registration status: 204
+Tomcat started on port(s): 8671 (http) with context path '/nconf-gateway'
+Updating port to 8671
+Started ApiGatewayApplication in 17.624 seconds (JVM running for 24.407)
+Registered instance API-GATEWAY/DESKTOP-IMI16LQ:api-gateway:8671 with status UP (replication=true)
+Flipping property: auth-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-auth-service
+Client: auth-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=auth-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client auth-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=auth-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@1df2a41
+Flipping property: user-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-user-service
+Client: user-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=user-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client user-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=user-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@1aa7703
+Flipping property: paper-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-paper-service
+Client: paper-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=paper-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client paper-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=paper-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@16e7dfb
+Flipping property: conf-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-conf-service
+Client: conf-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=conf-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client conf-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=conf-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@860139
+Flipping property: client-test1.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-client-test1
+Client: client-test1 instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=client-test1,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client client-test1 initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=client-test1,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@171d4db
+Flipping property: consumer-test.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-consumer-test
+Client: consumer-test instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=consumer-test,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client consumer-test initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=consumer-test,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@1f11bfb
+Flipping property: notice-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Shutdown hook installed for: NFLoadBalancer-PingTimer-notice-service
+Client: notice-service instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=notice-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+Using serverListUpdater PollingServerListUpdater
+DynamicServerListLoadBalancer for client notice-service initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=notice-service,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@35b281
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 3ms
+Resolving eureka endpoints via configuration
+No active profile set, falling back to default profiles: default
+Multiple Spring Data modules found, entering strict repository configuration mode!
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 350ms. Found 8 JPA repository interfaces.
+Multiple Spring Data modules found, entering strict repository configuration mode!
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.AccountRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.OauthClientDetailsRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.OauthCodeRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.PermissionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.RolePermissionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.RoleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Spring Data Redis - Could not safely identify store assignment for repository candidate interface org.wxz.authserver.repository.UserRoleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+Finished Spring Data repository scanning in 16ms. Found 0 Redis repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=74b945f4-e9cc-3a32-8b37-951f8d702980
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@d40ff4' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Tomcat initialized with port(s): 8085 (http)
+Initializing ProtocolHandler ["http-nio-8085"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 11315 ms
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@e3c26e
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+Running the evict task with compensationTime 1ms
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/oauth/token'], Ant [pattern='/oauth/token_key'], Ant [pattern='/oauth/check_token']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1896af6, org.springframework.security.web.context.SecurityContextPersistenceFilter@3404fa, org.springframework.security.web.header.HeaderWriterFilter@18f2486, org.springframework.security.web.authentication.logout.LogoutFilter@fffa5a, org.springframework.security.oauth2.provider.client.ClientCredentialsTokenEndpointFilter@1a5a8ba, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1c4ec43, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@cb1310, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1087c75, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16e2c83, org.springframework.security.web.session.SessionManagementFilter@1441609, org.springframework.security.web.access.ExceptionTranslationFilter@79446, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1cc0296]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1f45b7c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a4888c, org.springframework.security.web.header.HeaderWriterFilter@1f59e0e, org.springframework.security.web.authentication.logout.LogoutFilter@97ead6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@116e486, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@16f0281, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@159f65c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f9c52, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1cf65f1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10704a5, org.springframework.security.web.session.SessionManagementFilter@19ebd94, org.springframework.security.web.access.ExceptionTranslationFilter@fbefad, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@a11a19]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Setting initial instance status as: STARTING
+Initializing Eureka in region us-east-1
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Resolving eureka endpoints via configuration
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+The response status is 200
+Starting heartbeat executor: renew interval is: 30
+InstanceInfoReplicator onDemand update allowed rate per min is 4
+Discovery Client initialized at timestamp 1591629005062 with initial instances count: 3
+Registering application AUTH-SERVICE with eureka with status UP
+Saw local status change event StatusChangeEvent [timestamp=1591629005083, current=UP, previous=STARTING]
+DiscoveryClient_AUTH-SERVICE/DESKTOP-IMI16LQ:auth-service:8085: registering service...
+Starting ProtocolHandler ["http-nio-8085"]
+Tomcat started on port(s): 8085 (http) with context path '/auth-service'
+Updating port to 8085
+Registered instance AUTH-SERVICE/DESKTOP-IMI16LQ:auth-service:8085 with status UP (replication=false)
+DiscoveryClient_AUTH-SERVICE/DESKTOP-IMI16LQ:auth-service:8085 - registration status: 204
+Started AuthServerApplication in 44.558 seconds (JVM running for 49.676)
+Registered instance AUTH-SERVICE/DESKTOP-IMI16LQ:auth-service:8085 with status UP (replication=true)
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Flipping property: auth-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+No active profile set, falling back to default profiles: default
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 454ms. Found 17 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=f9e2fd4f-c57a-3826-9832-d65bb44515de
+Bean 'org.wxz.confserver.service_api.RoleApiService' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@73d5eb' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Tomcat initialized with port(s): 8289 (http)
+Initializing ProtocolHandler ["http-nio-8289"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 15273 ms
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@422efb
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+Running the evict task with compensationTime 0ms
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+Resolving eureka endpoints via configuration
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@127ef86, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a50a24, org.springframework.security.web.header.HeaderWriterFilter@1f437d7, org.springframework.security.web.authentication.logout.LogoutFilter@150951, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@10febd7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@189b85, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10e6b93, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2754be, org.springframework.security.web.session.SessionManagementFilter@e41f13, org.springframework.security.web.access.ExceptionTranslationFilter@64aeec, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d6895a]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d9e3f, org.springframework.security.web.context.SecurityContextPersistenceFilter@ef8000, org.springframework.security.web.header.HeaderWriterFilter@1e38b73, org.springframework.security.web.authentication.logout.LogoutFilter@7fc9ce, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1bdf835, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1cb8fcb, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@16155b5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d97b64, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@152c21f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19fc4c9, org.springframework.security.web.session.SessionManagementFilter@11a307e, org.springframework.security.web.access.ExceptionTranslationFilter@1d8b081, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1bd70fd]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Setting initial instance status as: STARTING
+Initializing Eureka in region us-east-1
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Resolving eureka endpoints via configuration
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+The response status is 200
+Starting heartbeat executor: renew interval is: 30
+InstanceInfoReplicator onDemand update allowed rate per min is 4
+Discovery Client initialized at timestamp 1591629163524 with initial instances count: 4
+Registering application CONF-SERVICE with eureka with status UP
+Saw local status change event StatusChangeEvent [timestamp=1591629163533, current=UP, previous=STARTING]
+DiscoveryClient_CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289: registering service...
+Starting ProtocolHandler ["http-nio-8289"]
+Registered instance CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289 with status UP (replication=false)
+DiscoveryClient_CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289 - registration status: 204
+Tomcat started on port(s): 8289 (http) with context path '/conf-service'
+Updating port to 8289
+Registered instance CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289 with status UP (replication=true)
+Started ConfServerApplication in 58.114 seconds (JVM running for 64.371)
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Flipping property: conf-service.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Current renewal threshold is : 8
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 1ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Current renewal threshold is : 8
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 1730 ms
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 4800 ms
+Error during filtering
+com.netflix.zuul.exception.ZuulException: 
+	at org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter.findZuulException(SendErrorFilter.java:118)
+	at org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter.run(SendErrorFilter.java:78)
+	at com.netflix.zuul.ZuulFilter.runFilter(ZuulFilter.java:117)
+	at com.netflix.zuul.FilterProcessor.processZuulFilter(FilterProcessor.java:193)
+	at com.netflix.zuul.FilterProcessor.runFilters(FilterProcessor.java:157)
+	at com.netflix.zuul.FilterProcessor.error(FilterProcessor.java:105)
+	at com.netflix.zuul.ZuulRunner.error(ZuulRunner.java:112)
+	at com.netflix.zuul.http.ZuulServlet.error(ZuulServlet.java:145)
+	at com.netflix.zuul.http.ZuulServlet.service(ZuulServlet.java:83)
+	at org.springframework.web.servlet.mvc.ServletWrappingController.handleRequestInternal(ServletWrappingController.java:166)
+	at org.springframework.cloud.netflix.zuul.web.ZuulController.handleRequest(ZuulController.java:45)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter.doFilter(OAuth2AuthenticationProcessingFilter.java:176)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Error during filtering
+com.netflix.zuul.exception.ZuulException: 
+	at org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter.findZuulException(SendErrorFilter.java:118)
+	at org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter.run(SendErrorFilter.java:78)
+	at com.netflix.zuul.ZuulFilter.runFilter(ZuulFilter.java:117)
+	at com.netflix.zuul.FilterProcessor.processZuulFilter(FilterProcessor.java:193)
+	at com.netflix.zuul.FilterProcessor.runFilters(FilterProcessor.java:157)
+	at com.netflix.zuul.FilterProcessor.error(FilterProcessor.java:105)
+	at com.netflix.zuul.ZuulRunner.error(ZuulRunner.java:112)
+	at com.netflix.zuul.http.ZuulServlet.error(ZuulServlet.java:145)
+	at com.netflix.zuul.http.ZuulServlet.service(ZuulServlet.java:83)
+	at org.springframework.web.servlet.mvc.ServletWrappingController.handleRequestInternal(ServletWrappingController.java:166)
+	at org.springframework.cloud.netflix.zuul.web.ZuulController.handleRequest(ZuulController.java:45)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter.doFilter(OAuth2AuthenticationProcessingFilter.java:176)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Running the evict task with compensationTime 0ms
+Error during filtering
+com.netflix.zuul.exception.ZuulException: 
+	at org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter.findZuulException(SendErrorFilter.java:118)
+	at org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter.run(SendErrorFilter.java:78)
+	at com.netflix.zuul.ZuulFilter.runFilter(ZuulFilter.java:117)
+	at com.netflix.zuul.FilterProcessor.processZuulFilter(FilterProcessor.java:193)
+	at com.netflix.zuul.FilterProcessor.runFilters(FilterProcessor.java:157)
+	at com.netflix.zuul.FilterProcessor.error(FilterProcessor.java:105)
+	at com.netflix.zuul.ZuulRunner.error(ZuulRunner.java:112)
+	at com.netflix.zuul.http.ZuulServlet.error(ZuulServlet.java:145)
+	at com.netflix.zuul.http.ZuulServlet.service(ZuulServlet.java:83)
+	at org.springframework.web.servlet.mvc.ServletWrappingController.handleRequestInternal(ServletWrappingController.java:166)
+	at org.springframework.cloud.netflix.zuul.web.ZuulController.handleRequest(ZuulController.java:45)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter.doFilter(OAuth2AuthenticationProcessingFilter.java:176)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Error during filtering
+com.netflix.zuul.exception.ZuulException: 
+	at org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter.findZuulException(SendErrorFilter.java:118)
+	at org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter.run(SendErrorFilter.java:78)
+	at com.netflix.zuul.ZuulFilter.runFilter(ZuulFilter.java:117)
+	at com.netflix.zuul.FilterProcessor.processZuulFilter(FilterProcessor.java:193)
+	at com.netflix.zuul.FilterProcessor.runFilters(FilterProcessor.java:157)
+	at com.netflix.zuul.FilterProcessor.error(FilterProcessor.java:105)
+	at com.netflix.zuul.ZuulRunner.error(ZuulRunner.java:112)
+	at com.netflix.zuul.http.ZuulServlet.error(ZuulServlet.java:145)
+	at com.netflix.zuul.http.ZuulServlet.service(ZuulServlet.java:83)
+	at org.springframework.web.servlet.mvc.ServletWrappingController.handleRequestInternal(ServletWrappingController.java:166)
+	at org.springframework.cloud.netflix.zuul.web.ZuulController.handleRequest(ZuulController.java:45)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter.doFilter(OAuth2AuthenticationProcessingFilter.java:176)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Error during filtering
+com.netflix.zuul.exception.ZuulException: 
+	at org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter.findZuulException(SendErrorFilter.java:118)
+	at org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter.run(SendErrorFilter.java:78)
+	at com.netflix.zuul.ZuulFilter.runFilter(ZuulFilter.java:117)
+	at com.netflix.zuul.FilterProcessor.processZuulFilter(FilterProcessor.java:193)
+	at com.netflix.zuul.FilterProcessor.runFilters(FilterProcessor.java:157)
+	at com.netflix.zuul.FilterProcessor.error(FilterProcessor.java:105)
+	at com.netflix.zuul.ZuulRunner.error(ZuulRunner.java:112)
+	at com.netflix.zuul.http.ZuulServlet.error(ZuulServlet.java:145)
+	at com.netflix.zuul.http.ZuulServlet.service(ZuulServlet.java:83)
+	at org.springframework.web.servlet.mvc.ServletWrappingController.handleRequestInternal(ServletWrappingController.java:166)
+	at org.springframework.cloud.netflix.zuul.web.ZuulController.handleRequest(ZuulController.java:45)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter.doFilter(OAuth2AuthenticationProcessingFilter.java:176)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 1ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 1ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 1ms
+Resolving eureka endpoints via configuration
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Current renewal threshold is : 8
+Running the evict task with compensationTime 0ms
+No active profile set, falling back to default profiles: default
+Running the evict task with compensationTime 0ms
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 409ms. Found 17 JPA repository interfaces.
+Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+BeanFactory id=f9e2fd4f-c57a-3826-9832-d65bb44515de
+Bean 'org.wxz.confserver.service_api.RoleApiService' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@178f3d5' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Tomcat initialized with port(s): 8289 (http)
+Initializing ProtocolHandler ["http-nio-8289"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 30617 ms
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@10a9031
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Unable to create an RSA verifier from verifierKey (ignoreable if using MAC)
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Current renewal threshold is : 8
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1736818, org.springframework.security.web.context.SecurityContextPersistenceFilter@8a678a, org.springframework.security.web.header.HeaderWriterFilter@745270, org.springframework.security.web.authentication.logout.LogoutFilter@9348e8, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@8d4981, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13bde85, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c7e441, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@17d3f54, org.springframework.security.web.session.SessionManagementFilter@1a2ea5a, org.springframework.security.web.access.ExceptionTranslationFilter@189f546, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c7abf6]
+Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@796d0e, org.springframework.security.web.context.SecurityContextPersistenceFilter@97ecea, org.springframework.security.web.header.HeaderWriterFilter@17949dc, org.springframework.security.web.authentication.logout.LogoutFilter@4704ae, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@cce199, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@c32e15, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@c548f6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@487d57, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12af0eb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ed0c04, org.springframework.security.web.session.SessionManagementFilter@1d8c398, org.springframework.security.web.access.ExceptionTranslationFilter@279a5d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1422187]
+No URLs will be polled as dynamic configuration sources.
+To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+Initializing ExecutorService 'applicationTaskExecutor'
+You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+Exposing 2 endpoint(s) beneath base path '/actuator'
+Setting initial instance status as: STARTING
+Initializing Eureka in region us-east-1
+Using JSON encoding codec LegacyJacksonJson
+Using JSON decoding codec LegacyJacksonJson
+Using XML encoding codec XStreamXml
+Using XML decoding codec XStreamXml
+Resolving eureka endpoints via configuration
+Disable delta property : false
+Single vip registry refresh property : null
+Force full registry fetch : false
+Application is null : false
+Registered Applications size is zero : true
+Application version is -1: true
+Getting all instance registry info from the eureka server
+The response status is 200
+Starting heartbeat executor: renew interval is: 30
+InstanceInfoReplicator onDemand update allowed rate per min is 4
+Discovery Client initialized at timestamp 1591630473949 with initial instances count: 5
+Registering application CONF-SERVICE with eureka with status UP
+Saw local status change event StatusChangeEvent [timestamp=1591630473971, current=UP, previous=STARTING]
+DiscoveryClient_CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289: registering service...
+Starting ProtocolHandler ["http-nio-8289"]
+Tomcat started on port(s): 8289 (http) with context path '/conf-service'
+Updating port to 8289
+Registered instance CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289 with status UP (replication=false)
+DiscoveryClient_CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289 - registration status: 204
+Registered instance CONF-SERVICE/DESKTOP-IMI16LQ:conf-service:8289 with status UP (replication=true)
+Started ConfServerApplication in 76.821 seconds (JVM running for 94.35)
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 2ms
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 154 ms
+cg-vo=HomePageVo(conferenceList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], commandedList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], tagList=[外语, 计算机科学, 生物学, 高分子, 材料科学, 建筑学], countAll=3)
+cg-vo=HomePageVo(conferenceList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], commandedList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], tagList=[外语, 计算机科学, 生物学, 高分子, 材料科学, 建筑学], countAll=3)
+cg-vo=HomePageVo(conferenceList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], commandedList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], tagList=[外语, 计算机科学, 生物学, 高分子, 材料科学, 建筑学], countAll=3)
+cg-vo=HomePageVo(conferenceList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], commandedList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], tagList=[外语, 计算机科学, 生物学, 高分子, 材料科学, 建筑学], countAll=3)
+cg-vo=HomePageVo(conferenceList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], commandedList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], tagList=[外语, 计算机科学, 生物学, 高分子, 材料科学, 建筑学], countAll=3)
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+cg-vo=HomePageVo(conferenceList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], commandedList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], tagList=[外语, 计算机科学, 生物学, 高分子, 材料科学, 建筑学], countAll=3)
+cg-vo=HomePageVo(conferenceList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], commandedList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], tagList=[外语, 计算机科学, 生物学, 高分子, 材料科学, 建筑学], countAll=3)
+cg-vo=HomePageVo(conferenceList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], commandedList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], tagList=[外语, 计算机科学, 生物学, 高分子, 材料科学, 建筑学], countAll=3)
+cg-vo=HomePageVo(conferenceList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], commandedList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], tagList=[外语, 计算机科学, 生物学, 高分子, 材料科学, 建筑学], countAll=3)
+cg-vo=HomePageVo(conferenceList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], commandedList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], tagList=[外语, 计算机科学, 生物学, 高分子, 材料科学, 建筑学], countAll=3)
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+用户根据标签查询会议-成功-vo=ConfListVo(conferenceList=[HomeConfVo(confId=1589215620708655663, confName=2020年信息技术应用研讨会, keyWords=电子信息, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589215825731665066, bigPosterUrl=16f65981-bbb2-4f63-88c4-b08296a0d682.png), HomeConfVo(confId=1589215895109964241, confName=2021年亚洲机构学和机器人会议, keyWords=机器人, confIntroduce=教授分别于1988年和1991年获得上海交通大学机械工程学士学位和硕士学位，2002年获得美国马萨诸塞州剑桥麻省理工学院机械工程博士学位。在2010年之前，他是新加坡DSO国家实验室的主要技术人员。他在DSO的研究领域包括外骨骼和类人机器人、智能地面和空中机器人以及生物启发机器人。Haoyong Yu教授也是新加坡神经技术研究所（SINAPSE）和新加坡国立大学高级机器人中心的首席调查, confDetailId=1589216058539266101, bigPosterUrl=731c4621-e8c5-481b-9fb2-072282d05b83.png), HomeConfVo(confId=1589216982606264109, confName=2021年电力系统与绿色能源大会, keyWords=新能源, confIntroduce=本次会议为达成提供一个交流的平台，讨论信息技术和应用的最新研究成果和未来的研究方向。我们诚邀诚邀各界人士就相关技术研究踊跃投稿交流。
+, confDetailId=1589217145794928097, bigPosterUrl=860d687c-4dfa-4cb9-b2a2-bcf4ec0b78e6.png)], countAll=3)
+Running the evict task with compensationTime 1ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 10ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Current renewal threshold is : 8
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Current renewal threshold is : 8
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Running the evict task with compensationTime 0ms
+Resolving eureka endpoints via configuration
+Resolving eureka endpoints via configuration
+Running the evict task with compensationTime 0ms
